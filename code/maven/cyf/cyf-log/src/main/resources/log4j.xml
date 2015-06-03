@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">  
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>  
+	<appender name="traceLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_trace.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="trace" />  
+			<param name="LevelMin" value="trace" />  
+		</filter>  
+	</appender>
+	
+	<appender name="debugLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_debug.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="debug" />  
+			<param name="LevelMin" value="debug" />  
+		</filter>  
+	</appender>
+	
+	<appender name="infoLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_info.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="info" />  
+			<param name="LevelMin" value="info" />  
+		</filter>  
+	</appender>
+	
+	<appender name="warnLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_warn.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="warn" />  
+			<param name="LevelMin" value="warn" />  
+		</filter>  
+	</appender>
+	
+	<appender name="errorLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_error.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="error" />  
+			<param name="LevelMin" value="error" />  
+		</filter>  
+	</appender>
+	
+	<appender name="fatalLog" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="f:/cyf/log/cyf_fatal.log" />	
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="fatal" />  
+			<param name="LevelMin" value="fatal" />  
+		</filter>  
+	</appender>
+	
+	<appender name="consoleLog" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH\:mm\:ss}] [%p] (%F:%L) %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
+			<param name="LevelMax" value="ERROR" />  
+			<param name="LevelMin" value="info" />  
+		</filter>
+	</appender>
+	<logger name="org.apache.struts2" >
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="com.opensymphony.xwork2">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="com.roc">
+		<level value="DEBUG"></level>
+	</logger>
+	<logger name="org.hibernate">
+		<level value="INFO"></level>
+	</logger>
+	<logger name="org.springframework.transaction">
+		<level value="DEBUG"></level>
+	</logger>
+	<root>
+		<level value="DEBUG"/>
+<!-- 		<appender-ref ref="traceLog"/> -->
+<!-- 		<appender-ref ref="debugLog"/> -->
+<!-- 		<appender-ref ref="infoLog"/> -->
+<!-- 		<appender-ref ref="warnLog"/> -->
+<!-- 		<appender-ref ref="errorLog"/> -->
+<!-- 		<appender-ref ref="fatalLog"/> -->
+		<appender-ref ref="consoleLog"/>
+	</root>
+</log4j:configuration>
