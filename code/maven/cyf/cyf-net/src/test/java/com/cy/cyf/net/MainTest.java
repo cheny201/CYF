@@ -14,7 +14,7 @@ import com.cy.cyf.net.http.HttpUtil;
  * Hello world!
  *
  */
-public class NetMain 
+public class MainTest 
 {
     public static void main( String[] args ) throws Exception
     {

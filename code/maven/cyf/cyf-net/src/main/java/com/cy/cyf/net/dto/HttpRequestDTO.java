@@ -7,12 +7,12 @@ import org.apache.http.HttpHost;
 
 public class HttpRequestDTO {
 	
-	private String url;
-	private String method;
+	private String url;//请求地址
+	private String method;//请求方式(post,get)
 	private Map<String, String> params;
 	private Map<String, File> files;
-	private AuthDTO authDTO;
-	private HttpHost proxy;
+	private AuthDTO authDTO;//认证信息
+	private HttpHost proxy;//代理信息
 	
 	public HttpRequestDTO(String url, String method, Map<String, String> params) {
 		this.url = url;
