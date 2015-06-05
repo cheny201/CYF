@@ -8,7 +8,7 @@ import org.apache.http.client.methods.HttpPost;
 
 import com.cy.cyf.log.CYFLog;
 import com.cy.cyf.net.dto.HttpRequestDTO;
-import com.cy.cyf.net.http.HttpUtil;
+import com.cy.cyf.net.http.HttpClientUtil;
 
 /**
  * Hello world!
@@ -30,7 +30,7 @@ public class MainTest
 		}
     	CYFLog.info("EEEEEEEEEEEE");
     	HttpRequestDTO httpRequestDTO = new HttpRequestDTO("http://127.0.0.1:8080/web/test",HttpPost.METHOD_NAME,params,files,false);
-        HttpUtil.sendRequest(httpRequestDTO);
+        HttpClientUtil.sendRequest(httpRequestDTO);
         CYFLog.info("TTTTTTTTTTT");
     }
 }

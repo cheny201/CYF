@@ -79,7 +79,7 @@
 		</layout>
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
 			<param name="LevelMax" value="ERROR" />  
-			<param name="LevelMin" value="info" />  
+			<param name="LevelMin" value="DEBUG" />  
 		</filter>
 	</appender>
 	<logger name="org.apache.struts2" >

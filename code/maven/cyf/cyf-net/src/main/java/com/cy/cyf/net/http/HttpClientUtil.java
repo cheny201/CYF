@@ -40,7 +40,7 @@ import com.cy.cyf.net.Constant;
 import com.cy.cyf.net.dto.HttpRequestDTO;
 import com.cy.cyf.util.IOUtil;
 
-public class HttpUtil {
+public class HttpClientUtil {
 	private static PoolingHttpClientConnectionManager cm;
 	
 	{	
