@@ -6,8 +6,8 @@ import java.io.FileOutputStream;
 import java.util.Properties;
 import java.util.Vector;
 
-import com.cy.cyf.io.IOUtil;
 import com.cy.cyf.log.CYFLog;
+import com.cy.cyf.util.IOUtil;
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.ChannelSftp.LsEntry;

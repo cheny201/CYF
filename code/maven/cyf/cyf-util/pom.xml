@@ -21,5 +21,15 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.cy.cyf</groupId>
+    	<artifactId>cyf-exception</artifactId>
+    	<version>${cyf.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>com.cy.cyf</groupId>
+    	<artifactId>cyf-log</artifactId>
+    	<version>${cyf.version}</version>
+    </dependency>
   </dependencies>
 </project>

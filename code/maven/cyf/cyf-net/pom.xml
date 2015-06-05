@@ -21,7 +21,7 @@
     </dependency>
   	<dependency>
     	<groupId>com.cy.cyf</groupId>
-    	<artifactId>cyf-io</artifactId>
+    	<artifactId>cyf-util</artifactId>
     	<version>${cyf.version}</version>
     </dependency>
     <dependency>

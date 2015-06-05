@@ -7,10 +7,10 @@ import java.io.IOException;
 
 import org.apache.commons.net.ftp.FTPSClient;
 
-import com.cy.cyf.io.IOUtil;
 import com.cy.cyf.log.CYFLog;
 import com.cy.cyf.net.Constant;
 import com.cy.cyf.net.dto.AuthDTO;
+import com.cy.cyf.util.IOUtil;
 
 public class FTPUtil {
 	
