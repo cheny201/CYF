@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping prefix="/dorado">
+	<forwards />
+	<exceptions />
+	<controllers>
+		<controller name="exception" clazz="com.bstek.dorado.action.impl.ExceptionController" />
+		<controller name="noForward" clazz="com.bstek.dorado.core.NoForwardController" />
+		<controller name="console" clazz="com.bstek.dorado.admin.ConsoleController">
+			<action>
+				<exception clazz="com.bstek.dorado.security.UserNotLoggedInException" path="/access.d" />
+			</action>
+			<action name="showSystemInfo" tag="admin,dev" />
+			<action name="forceGC" tag="admin,dev">
+				<forward name="success" path="/console.showSystemInfo.d" contextRelative="true" />
+			</action>
+			<action name="showPerformance" tag="admin,dev" />
+			<action name="showLog" tag="admin,dev" />
+			<action name="clearLog" tag="admin,dev">
+				<forward name="success" path="/console.showLog.d" contextRelative="true" redirect="true" />
+			</action>
+			<action name="showSetting" tag="admin,dev" />
+			<action name="updateSetting" tag="admin,dev">
+				<forward name="success" path="/console.showSetting.d" />
+			</action>
+		</controller>
+		<controller name="account" clazz="com.bstek.dorado.admin.AccountController" safe="true">
+			<action tag="admin,dev" />
+			<action tag="admin,dev" name="showAddForm">
+				<forward name="success" path="/account.d" />
+			</action>
+			<action tag="admin,dev" name="showModifyForm">
+				<forward name="success" path="/account.d" />
+			</action>
+			<action tag="admin,dev" name="showChangePasswordForm">
+				<forward name="success" path="/account.d" />
+			</action>
+			<action tag="admin,dev" name="add">
+				<forward name="success" path="/account.d" redirect="true" />
+				<forward name="failure" path="/account.showAddForm.d" />
+			</action>
+			<action tag="admin,dev" name="modify">
+				<forward name="success" path="/account.d" redirect="true" />
+				<forward name="failure" path="/account.showModifyForm.d" />
+			</action>
+			<action tag="admin,dev" name="changePassword">
+				<forward name="success" path="/account.d" redirect="true" />
+				<forward name="failure" path="/account.showChangePasswordForm.d" />
+			</action>
+			<action tag="admin,dev" name="delete">
+				<forward name="success" path="/account.d" redirect="true" />
+			</action>
+		</controller>
+		<controller name="pool" clazz="com.bstek.dorado.admin.PoolController" safe="true">
+			<action tag="admin,dev" />
+			<action name="showConnection" tag="admin,dev" />
+			<action name="clearConnection" tag="admin,dev">
+				<forward name="success" path="/pool.showConnection.d" />
+			</action>
+			<action name="showModule" tag="admin,dev" />
+			<action name="evictModule" tag="admin,dev">
+				<forward name="success" path="/pool.showModule.d" />
+			</action>
+			<action name="clearModule" tag="admin,dev">
+				<forward name="success" path="/pool.showModule.d" />
+			</action>
+		</controller>
+		<controller name="performance" clazz="com.bstek.dorado.admin.PerformanceController" safe="true">
+			<action tag="admin,dev" />
+			<action name="showLast" tag="admin,dev" />
+			<action name="showSlow" tag="admin,dev" />
+			<action name="showWatch" tag="admin,dev" />
+			<action name="showWatchDetail" tag="admin,dev" />
+			<action tag="admin,dev" name="addWatchTarget">
+				<forward name="success" path="/performance.showWatch.d" contextRelative="true" redirect="true" />
+			</action>
+			<action tag="admin,dev" name="removeWatchTarget">
+				<forward name="success" path="/performance.showWatch.d" redirect="true" />
+			</action>
+		</controller>
+		<controller name="designer" clazz="com.bstek.dorado.designer.DesignerController" scope="session">
+			<action name="exception" />
+			<action name="version">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="login">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="logout">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="testDataSource" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listDataSources" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listCategories" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listTables" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listColumns" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listKeyColumns" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="testAutoSqlDataset" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="testQuery" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="testDataset" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+			<action name="listDatasetFields" tag="admin,dev">
+				<exception clazz="java.lang.Exception" path="/designer.exception.d" />
+			</action>
+		</controller>
+		<controller name="smartweb2" clazz="com.bstek.dorado.view.smartweb.v2.ViewServiceController">
+			<action name="showRPCLoadingTip" />
+			<action name="showRPCSubmitter" />
+			<action name="RPC" />
+			<action name="noForward" />
+			<action name="showDynamicDropDown">
+				<forward name="success" path="/WEB-INF/dynamic-dropdown2.jsp" contextRelative="false" />
+			</action>
+		</controller>
+		<controller name="access" clazz="com.bstek.dorado.admin.AdminAccessController">
+			<action name="login">
+				<forward name="success" path="/console.d" redirect="true" />
+				<forward name="failure" path="/access.d" />
+			</action>
+			<action name="logout">
+				<forward name="success" path="/access.d" />
+			</action>
+		</controller>
+		<controller name="register" clazz="com.bstek.dorado.admin.RegisterController">
+			<action>
+				<forward name="showLicense" path="/register.showLicense.d" contextRelative="true" />
+				<forward name="thanks" path="/register.thanks.d" contextRelative="true" />
+			</action>
+			<action name="showLicense">
+				<forward name="showApplyForm" path="/register.showApplyForm.d" contextRelative="true" />
+			</action>
+			<action name="showApplyForm" />
+			<action name="submitApplyForm">
+				<forward name="back" path="/register.showApplyForm.d" contextRelative="true" />
+			</action>
+			<action name="sendApplyForm">
+				<forward name="webpost" />
+			</action>
+			<action name="webpostApplyForm" />
+			<action name="downloadApplyForm" />
+			<action name="thanks" />
+		</controller>
+		<controller name="export2Excel" clazz="com.bstek.dorado.biz.Export2ExcelController" />
+	</controllers>
+</mapping>
+

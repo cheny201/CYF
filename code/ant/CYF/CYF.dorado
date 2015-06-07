@@ -1,0 +1,14 @@
+sourcePath=${project.root}/src
+localHome=${project.root}/dorado
+webRoot=${project.root}/WebContent
+javaSourceEncoding=UTF-8
+
+autoCheckUpgrade=true
+defaultURI=
+port=8080
+server=localhost
+archivePath=
+autoBuildProject=true
+webApp=CYF
+autoBrowse=true
+service.autoLogin=true

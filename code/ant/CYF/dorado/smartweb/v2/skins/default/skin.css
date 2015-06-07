@@ -1,0 +1,1267 @@
+body {
+	font-family: VERDANA;
+	font-size: 9pt;
+	visibility: hidden;
+	scrollbar-3dlight-color: C5D9E8;
+	scrollbar-arrow-color: black;
+	scrollbar-darkshadow-color: white;
+	scrollbar-face-color: #EDF2F6;
+	scrollbar-highlight-color: #F8F7F9;
+	scrollbar-shadow-color: C5D9E8;
+}
+
+table {
+	font-family: VERDANA;
+	font-size: 9pt;
+}
+
+div
+{
+}
+
+.LoadingTip {
+	width: 200;
+	padding: 12;
+	padding-left: 30;
+	border-width: 1;
+	border-color: #AAAAAA;
+	border-style: solid;
+	background-color: white;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#EEEEEE)
+					progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+	-moz-opacity: 0.90;
+}
+
+.SubWindow {
+}
+
+.SubWindow .WindowTable {
+	background-color: white;
+	border-color: #CCCCCC;
+	border-width: 1;
+	border-style: solid;
+}
+
+.SubWindow .TitleBar {
+	height: 18;
+	background-color: #E5E5E5;
+}
+
+.SubWindowContentContainer {
+}
+
+.SubWindow .WindowButton {
+	cursor: pointer;
+}
+
+.SubWindow .HotWindowButton {
+	cursor: pointer;
+	background-color: white;
+}
+
+.FloatSubWindow {
+	border-color: #5B94DF;
+	border-width: 2;
+	border-style: solid;
+}
+
+.FloatSubWindow .WindowTable {
+	background-color: white;
+	border-width: 0;
+}
+
+.FloatSubWindow .TitleBar {
+	height: 18;
+	background-color: #6D9FE2;
+}
+
+.FloatSubWindow .TitleBar TD {
+	color: white;
+}
+
+.FloatSubWindowContentContainer {
+}
+
+.FloatSubWindow .WindowButton {
+	cursor: pointer;
+}
+
+.FloatSubWindow .HotWindowButton {
+	cursor: pointer;
+	background-color: #B8D0F1;
+}
+
+.SubWindowDraggingCursor {
+	cursor: move;
+	position: absolute;
+	background-color: #BDDBF2;
+	border-width: 2;
+	border-color: #164D74;
+	border-style: solid;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	-moz-opacity: 0.30;
+}
+
+.SubWindowExclusiveCovering {
+	position: absolute;
+	background-color: silver;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+	-moz-opacity: 0.40;	
+}
+
+.GroupBox {
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+	padding-top: 2;
+	padding-left: 8;
+	padding-right: 8;
+	padding-bottom: 8;
+}
+
+.GroupBoxTitle {
+	white-space: nowrap;
+}
+
+.GroupBoxExpandButton {
+	cursor: pointer;
+}
+
+.GroupBoxContentContainer {
+	padding-top: 4;
+}
+
+.SplitPanel_Vert {
+
+}
+
+.SplitPanel_Vert_Splitter {
+	background-color: #E0E0E0;
+	border-collapse: collapse;
+}
+
+.SplitPanel_Vert_ButtonArea {
+	cursor: default;
+	background-color: white;
+}
+
+.SplitPanel_Vert_Button {
+	cursor: pointer;
+}
+
+.SplitPanel_Vert_DraggingCursor {
+	position: absolute;
+	background-color: #164D74;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	-moz-opacity: 0.30;
+}
+
+.SplitPanel_Hori {
+}
+
+.SplitPanel_Hori_Splitter {
+	background-color: #E0E0E0;
+	border-collapse: collapse;
+}
+
+.SplitPanel_Hori_ButtonArea {
+	cursor: default;
+	background-color: white;
+}
+
+.SplitPanel_Hori_Button {
+	cursor: pointer;
+}
+
+.SplitPanel_Hori_DraggingCursor {
+	position: absolute;
+	background-color: #164D74;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	-moz-opacity: 0.30;
+}
+
+.AutoForm {
+}
+
+.AutoForm .InnerTable {
+	border-collapse: collapse;
+}
+
+.AutoForm .InnerTableLabelCell {
+}
+
+.AutoForm .InnerTableContentCell {
+}
+
+.AutoForm .GroupBoxNoBevel {
+	margin: 3;
+	padding-top: 6;
+	padding-left: 12;
+	padding-right: 12;
+	padding-bottom: 6;
+	border-width: 0;
+}
+
+.AutoForm .GroupBoxDiv
+{	
+}
+
+.AutoForm .GroupTitle {
+}
+
+.AutoForm .SubWindowDiv
+{
+	padding: 8;
+}
+
+.TextEditor {
+	background-color: white;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.ActiveTextEditor {
+	background-color: white;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 1;
+	border-color: #74E540;
+	border-style: solid;
+}
+
+.ReadOnlyTextEditor {
+	background-color: #F6F6F6;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.TextEditor_Holder {
+	background-color: white;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+}
+
+.TextEditor_Holder TD {
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.ActiveTextEditor_Holder {
+	background-color: white;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+}
+
+.ActiveTextEditor_Holder TD {
+	border-width: 1;
+	border-color: #74E540;
+	border-style: solid;
+}
+
+.ReadOnlyTextEditor_Holder {
+	background-color: #F6F6F6;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+}
+
+.ReadOnlyTextEditor_Holder TD {
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.CheckBox {
+}
+
+.ActiveCheckBox {
+	background-color: white;
+}
+
+.ReadOnlyCheckBox {
+	background-color: #F6F6F6;
+}
+
+.RadioGroup {
+	table-layout: fixed;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.ActiveRadioGroup {
+	background-color: white;
+	table-layout: fixed;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+	border-color: #74E540;
+	border-style: solid;
+}
+
+.ReadOnlyRadioGroup {
+	table-layout: fixed;
+	font-family: VERDANA;
+	font-size: 9pt;
+	border-width: 0;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.DropDownButton {
+	background-color: #C6F4B1;
+	border-width: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.InactiveDropDownButton {
+	background-color: #F0F0F0;
+	border-width: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.DropDownBox {
+	background-color: white;
+	border-width: 1;
+	border-color: #74E540;
+	border-style: solid;
+	cursor: pointer;
+}
+
+.DropDownStatusLabel {
+	background-color: #E3F5DB;
+	padding: 3;
+	border-width: 1;
+	border-color: #B7F39B;
+	border-style: solid;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+	-moz-opacity: 0.7;
+}
+
+.DataPilot BUTTON {
+	font-family: ARIAL;
+	font-size: 9pt;
+}
+
+.DataTable {
+	background-color: #F5F7F9;
+}
+
+.DataTable .OuterTable {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.DataTable .InnerTable {
+	border-collapse: collapse;
+}
+
+.DataTable .HeaderDiv  {
+	background-position-y: 100%;
+	background-image: url($SkinRoot/datatable_header.gif);
+}
+
+.DataTable .HeaderGrid  {
+	color: #405368;
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DataTable .HeaderGrid .HotCell  {
+	background-position-y: 100%;
+	background-image: url($SkinRoot/datatable_header_hot.gif);
+}
+
+.DataTable .FooterGrid  {
+	background-color: #E1EAF1;
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DataTable .TextCell {	
+	padding-top: 2px;
+}
+
+.DataTable .FixedDataGrid {
+	background-color: #EDF2F6;
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DataTable .FixedDataGrid .Indicator {
+	background-color: #E6EDF2;
+}
+
+.DataTable .FixedDataGrid .Row {
+}
+
+.DataTable .FixedDataGrid .EvenRow {
+	background-color: #DAE4ED;
+}
+
+.DataTable .FixedDataGrid .MockRow {
+	background-color: #F0F0F0;
+}
+
+.DataTable .FixedDataGrid .MockEvenRow {
+	
+}
+
+.DataTable .FixedDataGrid .CurrentRow {
+	background-color: #B7F39B;
+}
+
+.DataTable .DataGrid {	
+	background-color: #F5F7F9;
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.DataTable .DataGrid .RadioGroup TD{
+	border-width: 0;
+}
+
+#if ($BrowserType == "IE")
+
+.DataTable .DataGrid .FirstGroupCell {
+	border-color: white;
+	border-top-style: solid;
+	border-bottom-style: none;
+}
+
+.DataTable .DataGrid .OmittedGroupCell {
+	border-color: white;
+	border-top-style: none;
+	border-bottom-style: none;
+}
+
+.DataTable .DataGrid .LastGroupCell {
+	border-color: white;
+	border-top-style: none;
+	border-bottom-style: solid;
+}
+
+#else
+
+.DataTable .DataGrid .FirstGroupCell {
+	border-width: 1px;
+	border-top-color: #C5D9E8;
+	border-top-style: solid;
+}
+
+.DataTable .DataGrid .OmittedGroupCell {
+	border-width: 1px;
+	border-top-color: #F5F7F9;
+	border-top-style: solid;
+}
+
+.DataTable .DataGrid .LastGroupCell {	
+	border-width: 1px;
+	border-top-color: #F5F7F9;
+	border-top-style: solid;
+	border-bottom-color: #C5D9E8;
+	border-bottom-style: solid;
+}
+
+#end
+
+.DataTable .DataGrid .Row {
+}
+
+.DataTable .DataGrid .EvenRow {
+	background-color: #E6EBF0;
+}
+
+.DataTable .DataGrid .MockRow {
+	background-color: #F0F0F0;
+}
+
+.DataTable .DataGrid .MockEvenRow {
+	background-color: #F0F0F0;
+}
+
+.DataTable .DataGrid .CurrentRow {
+	background-color: #B7F39B;
+}
+
+.DropDownTable {
+	background-color: #F0F0F0;
+}
+
+.DropDownTable .OuterTable {
+	border-width: 0;
+	border-collapse: collapse;
+}
+
+.DropDownTable .InnerTable {
+	border-width: 0;
+	border-collapse: collapse;
+}
+
+.DropDownTable .HeaderGrid  {
+	background-color: #E0F0D8;
+	border-width: 0;
+	border-color: #F4F8F4;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DropDownTable .HeaderGrid .HotCell  {
+}
+
+.DropDownTable .FooterGrid  {
+	background-color: #eeeeee;
+	border-width: 0;
+	border-color: #F4F8F4;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DropDownTable .TextCell {	
+	padding-top: 2px;
+}
+
+.DropDownTable .FixedDataGrid {
+	background-color: white;
+	border-width: 0;
+	border-color: #F4F8F4;
+	border-style: solid;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.DropDownTable .FixedDataGrid .Indicator {
+	background-color: #E6EDF2;
+}
+
+.DropDownTable .FixedDataGrid .Row {
+}
+
+.DropDownTable .FixedDataGrid .EvenRow {
+}
+
+.DropDownTable .FixedDataGrid .MockRow {
+	background-color: #F0F0F0;
+}
+
+.DropDownTable .FixedDataGrid .MockEvenRow {
+	background-color: #F0F0F0;
+}
+
+.DropDownTable .FixedDataGrid .CurrentRow {
+	background-color: #B7F39B;
+}
+
+.DropDownTable .DataGrid {
+	background-color: white;
+	border-width: 0;
+	border-color: #F4F8F4;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.DropDownTable .DataGrid .Row {
+}
+
+.DropDownTable .DataGrid .EvenRow {
+	background-color: #F3FDEE;
+}
+
+.DropDownTable .DataGrid .MockRow {
+	background-color: #F0F0F0;
+}
+
+.DropDownTable .DataGrid .MockEvenRow {
+	background-color: #F0F0F0;
+}
+
+.DropDownTable .DataGrid .CurrentRow {
+	background-color: #B7F39B;
+}
+
+.ColumnDraggingCursor {
+	position: absolute;
+	background-color: white;
+	border: 1 silver solid;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+	-moz-opacity: 0.7;
+}
+
+.ColumnSplitSlider {
+	position: absolute;
+	background-color: #BDDBF2;
+	border: 2 #164D74 solid;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	-moz-opacity: 0.30;
+}
+
+.ScrollBar {
+	background-color: #f7f7f7;
+}
+
+.ScrollBar TD {
+	align: center;
+	valign: center;
+}
+
+.ScrollBar_Button {
+	width: 13;
+	height: 13;
+	background-color: #EDF2F6;
+	border-width: 1;
+	border-style: solid;
+	border-color: #C5D9E8;
+	filter: none;	
+	cursor: pointer;
+}
+
+.ScrollBar .Button_Down {
+	width: 13;
+	height: 13;
+	background-color: #E6EAEF;
+	border-width: 1;
+	border-style: solid;
+	border-color: #D0D4DA;
+	filter: none;	
+	cursor: pointer;
+}
+
+.ScrollBar .Button_Disabled {
+	background-color: #E6E7E7;
+	width: 13;
+	height: 13;
+	border-width: 1;
+	border-style: solid;
+	border-color: #D0D4DA;
+	filter: none;	
+}
+
+.ScrollBar .Silder {
+	width: 13;
+	height: 13;
+	background-color: #EDF2F6;
+	border-width: 1;
+	border-style: solid;
+	border-color: #C5D9E8;
+	overflow: hidden;
+}
+
+.ScrollBar .Silder_Down {
+	width: 13;
+	height: 13;
+	background-color: #E6EAEF;
+	border-width: 1;
+	border-style: solid;
+	border-color: #D0D4DA;
+	overflow: hidden;
+}
+
+.ScrollBarPositionLabel {	
+	padding: 2;
+	background-color: white;
+	border-width: 1;
+	border-color: gray;
+	border-style: solid;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=85);
+	-moz-opacity: 0.85;
+}
+
+.ButtonHolder {
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+}
+
+.ButtonHolder Button {		
+	cursor: pointer;
+	font-family: Verdana;
+	font-size: 9pt;
+	height: 22;
+	border-style: none;
+	background-color: buttonface;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#DDDDDD);
+}
+
+.ButtonHolder_Downd {
+	border-width: 1;
+	border-color: #555555;
+	border-style: solid;
+}
+
+.ButtonHolder_Down Button {		
+	cursor: pointer;
+	font-family: Verdana;
+	font-size: 9pt;
+	height: 22;
+	border-style: none;
+	background-color: buttonface;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#777777, endColorstr=#BBBBBB);
+}
+
+.Button {
+	cursor: pointer;
+	font-family: Verdana;
+	font-size: 9pt;
+	height: 22;
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+	background-color: buttonface;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#DDDDDD);
+}
+
+.Button_Down {		
+	color: white;
+	cursor: pointer;
+	font-family: Verdana;
+	font-size: 9pt;
+	height: 22;
+	border-width: 1;
+	border-color: #555555;
+	border-style: solid;
+	background-color: #999999;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#777777, endColorstr=#BBBBBB);
+}
+
+.TabSet {
+	table-layout: fixed;
+}
+
+.TabSet .Tab_top {
+	cursor: pointer;
+}
+
+.TabSet .DisabledTab_top {
+	cursor: pointer;
+	color: gray;
+}
+
+.TabSet .CurrentTab_top {
+	padding-top: 4;
+	cursor: pointer;
+}
+
+.TabSetContentContainer_top {
+	background-color: white;
+	border-width: 1;
+	border-color: #AAAAAA;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-top-style: none;
+	border-bottom-style: solid;
+}
+
+.TabSet .Tab_bottom {
+	cursor: pointer;
+}
+
+.TabSet .DisabledTab_bottom {
+	cursor: pointer;
+	color: gray;
+}
+
+.TabSet .CurrentTab_bottom {
+	padding-bottom: 4;
+	cursor: pointer;
+}
+
+.TabSetContentContainer_bottom {
+	background-color: white;
+	border-width: 1;
+	border-color: #AAAAAA;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-top-style: solid;
+	border-bottom-style: none;
+}
+
+.TabSetTabDiv {
+	padding: 2;
+}
+
+.Calendar {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	background-color: #EDF2F6;
+}
+
+.Calendar .Header {
+}
+
+.Calendar .Header Button {	
+	cursor: pointer;	
+	font-family: Verdana;
+	font-size: 9pt;
+	width: 18;
+	height: 18;
+	border-width: 0;
+	background-color: #EDF2F6;
+}
+
+.Calendar .Footer {
+}
+
+.Calendar .CalendarTable {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.Calendar .CalendarTable .Header TD{
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.Calendar .Footer TD {
+}
+
+.Calendar .CalendarTable TR {
+}
+
+.Calendar .CalendarTable .Header {
+	height: 20;
+	background-color: #E1EAF1;
+	font-weight: bold;
+}
+
+.Calendar .CalendarTable .CurrentMonth {	
+	background-color: #F7F7B7;
+	border-color: white;
+	border-style: solid;
+}
+
+.Calendar .CalendarTable .CurrentMonth .Content {	
+	background-color: #FAFAD3;
+}
+
+.Calendar .CalendarTable .PrevMonth {	
+	background-color: #F5F7F9;
+	border-color: white;
+	border-style: solid;
+}
+
+.Calendar .CalendarTable .PrevMonth TABLE {	
+	color: #969696;
+}
+
+.Calendar .CalendarTable .PrevMonth .Content {	
+	background-color: #FAFBFC;
+}
+
+.Calendar .CalendarTable .NextMonth {	
+	background-color: #F5F7F9;
+	border-color: white;
+	border-style: solid;
+}
+
+.Calendar .CalendarTable .NextMonth TABLE {	
+	color: #969696;
+}
+
+.Calendar .CalendarTable .NextMonth .Content {	
+	background-color: #FAFBFC;
+}
+
+.Calendar .CalendarTable .CurrentDay {
+	background-color: #B7F39B;
+	border-color: white;
+	border-style: solid;
+}
+
+.Tree {
+	background-color: #F5F7F9;
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.Tree .TreeNode {
+	padding: 4;
+}
+
+.Tree .CurrentTreeNode {
+	padding: 4;
+	background-color: #B7F39B;
+}
+
+.Tree .DraggingTarget {
+	padding: 4;
+	background-color: #E8E8E8;
+}
+
+.TreeNodeButton {
+	cursor: pointer;
+}
+
+.TreeDraggingCursor {
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+	-moz-opacity: 0.6;
+}
+
+.PopupMenu {
+	width: 130;
+	padding: 1;
+	background-color: #F0F0F0;
+	border-width: 1;
+	border-color: #A0A0A0;
+	border-style: solid;
+}
+
+
+.MenuItem {
+	cursor: pointer;
+	padding: 2;
+	height: 24;
+	border-width: 1;
+}
+
+.MenuItem_Disabled {
+	cursor: pointer;
+	padding: 2;
+	height: 24;
+	border-width: 1;
+}
+
+.MenuItem_Disabled TD {
+	color: gray;
+}
+
+.HotMenuItem {
+	cursor: pointer;
+	padding: 2;
+	height: 24;
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+}
+
+.MenuItemSeperator_Hori {
+	height: 9;
+	padding-left: 4;
+	padding-right: 4;
+}
+
+.MenuItemSeperator_Vert {
+	height: 100%;
+	width: 1;
+	background-color: #D0D0D0;
+}
+
+.MenuBar {
+	height: 26;
+	border-width: 1;
+	border-color: #D0D0D0;
+	border-style: solid;
+	border-collapse: collapse;
+	background-color: #EEEEEE;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#DDDDDD);
+}
+
+.MenuBar_Button {
+	cursor: pointer;
+	padding-left: 12;	
+	padding-right: 12;
+	border-style: none;
+	margin: 1;
+}
+
+.MenuBar .Button_Disabled {
+	cursor: pointer;
+	padding-left: 12;	
+	padding-right: 12;
+	border-style: none;
+	margin: 1;
+}
+
+.MenuBar .Button_Disabled TD {
+	color: gray;
+}
+
+.MenuBar .HotButton {
+	cursor: pointer;
+	padding-left: 12;	
+	padding-right: 12;
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+}
+
+.OutlookBar {
+	border-width: 1;
+	border-color: #C0C0C0;
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+.OutlookBar_Button {
+	border-width: 1;
+	border-color: #C0C0C0;
+	border-style: solid;
+	padding: 2;
+	cursor: pointer;
+	background-color: #EEEEEE;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#DDDDDD);
+}
+
+.OutlookBar .DisabledButton {
+	border-width: 1;
+	border-color: #C0C0C0;
+	border-style: solid;
+	padding: 2;
+	cursor: pointer;
+	color: gray;
+	background-color: #DDDDDD;
+}
+
+.OutlookBar .HotButton {
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+	padding: 2;
+	cursor: pointer;
+}
+
+.OutlookBar .ScrollButton {
+	cursor: pointer;
+	padding: 1;
+	border-width: 1;
+	border-color: #CCCCCC;
+	border-style: solid;
+	background-color: white;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+	-moz-opacity: 0.8;
+}
+
+.OutlookBar .Group {
+}
+
+.OutlookBar .IconGroup {
+	background-color: #EDF2F6;
+}
+
+.OutlookBar .IconGroup .SubButton {
+	padding: 4;
+	margin: 1;
+}
+
+.OutlookBar .IconGroup .SubButton_Disabled {
+	padding: 4;
+	margin: 1;
+}
+
+.OutlookBar .IconGroup .SubButton_Disabled TD {
+	color: gray;
+}
+
+.OutlookBar .IconGroup .HotSubButton {
+	padding: 4;
+	margin: 0;
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+}
+
+.OutlookBar .IconGroup .SubIcon {
+}
+
+.OutlookBar .IconGroup .SubLabel {
+	padding: 2;
+}
+
+.OutlookBar .ListGroup {
+	background-color: #EDF2F6;
+}
+
+.OutlookBar .ListGroup .SubButton {
+	margin: 1;
+}
+
+.OutlookBar .ListGroup .SubButton_Disabled {
+	margin: 1;
+}
+
+.OutlookBar .ListGroup .SubButton_Disabled TD {
+	color: gray;
+}
+
+.OutlookBar .ListGroup .HotSubButton {
+	margin: 0;
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+}
+
+.OutlookBar .ListGroup .SubIcon {
+}
+
+.OutlookBar .ListGroup .SubLabel {
+	padding: 4;
+	white-space: nowrap;
+}
+
+.PagePilot {
+}
+
+.PagePilot .CurrentPageLink {
+	height: 12;
+	padding: 1;
+	color: black;
+	font-weight: bold;
+	background-color: #DDEDF9;
+	border-width: 1;
+	border-color: #7BB9E6;
+	border-style: solid;
+}
+
+.PagePilot .PageLink {
+	height: 15;
+	padding: 1;
+	cursor: pointer;
+	color: blue;
+	text-decoration: underline;
+	background-color: white;
+	border-width: 1;
+	border-color: white;
+	border-style: solid;
+}
+
+.PagePilot .VisitedPageLink {
+	height: 15;
+	padding: 1;
+	cursor: pointer;
+	color: purple;
+	text-decoration: underline;
+	background-color: white;
+	border-width: 1;
+	border-color: white;
+	border-style: solid;
+}
+
+.ProgressBar {
+  width: 18;
+  height: 18;
+	border-width: 1;
+	border-color: #5B94DF;
+	border-style: solid;
+	background-color: white;
+}
+
+.ProgressBar .Pointer {
+	border-width: 1;
+	border-color: white;
+	border-style: solid;
+	background-color: #81ACE7;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#DDE9F9, endColorstr=#81ACE7);
+}
+
+.ProgressBar .Label {
+  color: black;
+}
+
+.DataBlock {
+}
+
+.DataBlock .OuterTable {
+	border-collapse: collapse;
+}
+
+.DataBlock .OuterTableCell {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.DataBlock .Container {
+}
+
+.DataBlock .BlockCell {
+	cursor: pointer;
+}
+
+.DataBlock .Block {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.DataBlock .CurrentBlock {
+	border-width: 1;
+	border-color: #74E540;
+	border-style: solid;
+	background-color: #B7F39B;
+}
+
+.DataBlock .MockBlock {
+	border-width: 1;
+	border-color: #D0D0D0;
+	border-style: solid;
+	background-color: #F0F0F0;
+}
+
+.StaticTable {
+	border-collapse: collapse;
+}
+
+.StaticTableContainer {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.StaticTable THEAD {
+	font-weight: bold;
+	background-color: #E1EAF1;
+}
+
+.StaticTable TFOOT {
+	background-color: #E1EAF1;
+}
+
+.StaticTable TD {
+	border-width: 1;
+	border-color: #C5D9E8;
+	border-style: solid;
+}
+
+.StaticTable .Row {
+	background-color: #F5F7F9;
+}
+
+.StaticTable .EvenRow {
+	background-color: #E6EBF0;
+}

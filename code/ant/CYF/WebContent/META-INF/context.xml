@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/CYF">
+	<Resource name="cyf" 
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql://localhost/test?useUnicode=true&amp;characterEncoding=UTF-8"
+		username="root"
+		password="root"
+		maxActive="5"
+		maxIdle="1"
+		removeAbandoned="true"
+		removeAbandonedTimeout="60"
+		/>
+</Context>

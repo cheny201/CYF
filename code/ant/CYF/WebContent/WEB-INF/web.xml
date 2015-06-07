@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>CYF</display-name>
+
+	<context-param>
+		<description>rootPath</description>
+		<param-name>rootPath</param-name>
+		<param-value>/CYF</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:com/config/spring/applicationContext.xml,
+			classpath:com/config/spring/security/applicationContext-security.xml,
+<!-- 			classpath:com/config/dorado/marmot-base-context.xml, -->
+			classpath:com/config/cxf/cxf-servlet.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- spring security start -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- spring security end -->
+
+
+	<!-- Dorado5 start -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>doradofilter</filter-name> -->
+<!-- 		<filter-class>com.bstek.dorado.core.DoradoFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 		<filter-name>doradofilter</filter-name> -->
+<!-- 		<url-pattern>/*</url-pattern> -->
+<!-- 	</filter-mapping> -->
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>doradoservlet</servlet-name> -->
+<!-- 		<servlet-class>com.bstek.dorado.core.DoradoServlet</servlet-class> -->
+<!-- 		<load-on-startup>2</load-on-startup> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>doradoservlet</servlet-name> -->
+<!-- 		<url-pattern>*.d</url-pattern> -->
+<!-- 	</servlet-mapping> -->
+	<!-- Dorado5 end -->
+
+
+	<!-- springMVC start -->
+	<servlet>
+		<servlet-name>mvcServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:com/config/spring/mvc/applicationContext-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvcServlet</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<!-- springMVC END -->
+
+	<listener>
+		<display-name>rootPath</display-name>
+		<listener-class>com.cyf.listener.RootPathListener</listener-class>
+	</listener>
+
+	<!-- CXF Start -->
+	<servlet>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>/webservice/*</url-pattern>
+	</servlet-mapping>
+	<!-- CXF End -->
+
+	<!-- JFreeChart Start -->
+	<servlet>
+		<servlet-name>DisplayChart</servlet-name>
+		<servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DisplayChart</servlet-name>
+		<url-pattern>/DisplayChart</url-pattern>
+	</servlet-mapping>
+	<!-- JFreeChart End -->
+
+
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>tologin.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

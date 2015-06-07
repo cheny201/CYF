@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<!-- 	<context:component-scan base-package="com.cyf.security" /> -->
+	<!-- 使用Affirmative投票管理器——只要有一个投票器通过则认证通过 -->
+	<beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+		<beans:property name="allowIfAllAbstainDecisions" value="false"/>
+		<beans:property name="decisionVoters">
+			<beans:list>
+			    <beans:ref bean="urlAccessDecisionVoter"/>
+			    <beans:ref bean="webserviceAccessDecisionVoter"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<!-- 自定义voter -->
+	<beans:bean id="urlAccessDecisionVoter" class="com.cyf.security.voter.URLAccessDecisionVoter"/>
+	<beans:bean id="webserviceAccessDecisionVoter" class="com.cyf.security.voter.WebserviceAccessDecisionVoter"/>
+	
+   <http access-decision-manager-ref="accessDecisionManager">
+		<intercept-url pattern="/**/resources/**" access="NOFILTER" />
+   		<intercept-url pattern="/**/*.js" access="NOFILTER"/>
+		<intercept-url pattern="/**/*.ico" access="NOFILTER" />
+		<intercept-url pattern="/**/*.css" access="NOFILTER" />
+		<intercept-url pattern="/**/*.jpg" access="NOFILTER" />
+		<intercept-url pattern="/**/*.gif" access="NOFILTER" />
+		<intercept-url pattern="/**/*.swf" access="NOFILTER" />
+		<intercept-url pattern="/**/*.png" access="NOFILTER" />
+		<intercept-url pattern="/tologin.jsp" access="NOFILTER" />
+		<intercept-url pattern="/login.jsp" access="NOFILTER" />
+		<intercept-url pattern="/**/common/**" access="NOFILTER"/>
+		<intercept-url pattern="/**/DisplayChart" access="NOFILTER"/>
+		
+		<intercept-url pattern="/**/view/demo/**/*.jsp" access="NOFILTER"/>
+		<intercept-url pattern="/demo/*.do" access="NOFILTER" />
+		
+		<intercept-url pattern="/dorado/*" access="NOFILTER" />
+		<intercept-url pattern="/welcome.jsp" access="ROLE_NONE"/>
+		<intercept-url pattern="/error.jsp" access="ROLE_NONE" />
+		
+		
+		<intercept-url pattern="/login"/>
+		<intercept-url pattern="/logout"/>
+   		<intercept-url pattern="/*" access="ROLE_VALID"/>
+   		<intercept-url pattern="/**" access="ROLE_VALID"/>
+		
+   		<!-- 配置登陆后转向的页面 
+   			1、always-use-default-target="true"强制每次登陆验证通过后都转向该页面
+   			2、authentication-failure-url属性用于指定验证时候后转向的地址	
+   		-->
+	   	<form-login login-processing-url="/login" login-page="/login.jsp" authentication-success-handler-ref="cyfSuccessHandler" 
+	   				authentication-failure-handler-ref="cyfFailureHandler"/>
+	   	
+	   	<logout logout-success-url="/tologin.jsp" invalidate-session="true" logout-url="/logout"/>
+	   	
+	   	<!-- 
+	   		1、session失效时转向的页面
+	   		2、 session-fixation-protection用于防止固定session攻击（可用属性值：migrateSession|none|newSession）
+	   	-->
+	   	<session-management>
+	   		<!-- 
+	   			1、限制指定的帐号只能在一个地方登陆，第二次登陆将使第一次登陆失效 
+	   			2、若要限制不允许第二次登陆，需使用属性error-if-maximum-exceeded="true"，第二次登陆时将转向authentication-failure-url指定的地址
+	   			3、要启用session控制功能，需在web.xml中配置listener:org.springframework.security.web.session.HttpSessionEventPublisher
+	   		-->
+	   		<concurrency-control max-sessions="1" session-registry-alias="sessionRegistry"/>
+	   	</session-management>
+	   	
+	   	<!-- filter -->
+	   	<custom-filter before="CONCURRENT_SESSION_FILTER" ref="cyfConcurrentSessionFilter"></custom-filter>
+	   	<!-- <custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrentSessionFilter"></custom-filter> -->
+	   	<!-- <custom-filter position="PRE_AUTH_FILTER" ref="ccbPreAuthFilter"/> -->
+	   	
+	   	<!-- 拒绝访问 -->
+	   	<access-denied-handler ref="cyfAccessDeniedHandler"></access-denied-handler>
+   </http>
+   
+   <!-- 认证管理器，对访问主体基本信息进行认证 -->
+   <authentication-manager alias="authenticationManager">
+   	<authentication-provider ref="cyfAuthProvider">
+    </authentication-provider>
+   </authentication-manager>
+   
+   <!-- provider -->
+   <beans:bean id="cyfAuthProvider" class="com.cyf.security.CYFAuthenticationProvider"/>
+   
+   <beans:bean id="concurrentSessionControlStrategy" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
+   	<beans:constructor-arg ref="sessionRegistry"></beans:constructor-arg>
+   	<beans:property name="maximumSessions" value="1"></beans:property>
+   </beans:bean>
+   
+   <beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl">
+   </beans:bean>
+   
+   <!-- filters -->
+   <beans:bean id="cyfConcurrentSessionFilter" class="com.cyf.security.filter.CYFConcurrentSessionFilter">
+   	 <beans:property name="sessionRegistry" ref="sessionRegistry"></beans:property>
+   </beans:bean>
+   <!-- <beans:bean id="usernamePasswordAuthenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+    <beans:property name="authenticationDetailsSource" ref="ccbDetailSource"></beans:property>
+   	<beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
+   	<beans:property name="filterProcessesUrl" value="/login"></beans:property>
+   	<beans:property name="authenticationSuccessHandler" ref="cyfSuccessHandler"></beans:property>
+   	<beans:property name="authenticationFailureHandler" ref="cyfFailureHandler"></beans:property>
+   	<beans:property name="sessionAuthenticationStrategy" ref="concurrentSessionControlStrategy"></beans:property>
+   </beans:bean> -->
+   <beans:bean id="concurrentSessionFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+   	<beans:property name="sessionRegistry" ref="sessionRegistry"/>
+   	<beans:property name="expiredUrl" value="/tologin.jsp"/>
+   </beans:bean>
+   <!-- handler -->
+   <beans:bean id="cyfSuccessHandler" class="com.cyf.security.authentication.CYFSuccessHandler">
+   	 <beans:property name="resourcesService" ref="resourcesService"></beans:property>
+	 <beans:property name="application" ref="application"></beans:property>
+   </beans:bean>
+   <beans:bean id="cyfFailureHandler" class="com.cyf.security.authentication.CYFFailureHandler"></beans:bean>
+   <beans:bean id="cyfAccessDeniedHandler" class="com.cyf.security.handler.CYFAccessDeniedHandler"></beans:bean>
+   <!-- passwordencoder -->
+<!--    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" /> -->
+   <!-- 获取用户信息 -->
+   <beans:bean id="application" class="com.cyf.security.service.impl.ApplicationImpl">
+   	 <beans:property name="roleService" ref="roleService"></beans:property>
+   	 <beans:property name="userService" ref="userService"></beans:property>
+   	 <beans:property name="resourcesService" ref="resourcesService"></beans:property>
+<!--    	 <beans:property name="userGroupService" ref="userGroupService"></beans:property> -->
+   </beans:bean>
+</beans:beans>

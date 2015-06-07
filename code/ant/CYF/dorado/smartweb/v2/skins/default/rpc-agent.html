@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+body { background-color: white; font-size: 9pt; }
+table { font-size: 9pt; }
+</style>
+<script>
+var parentWindow = null;
+function window_onLoad() {
+	parentWindow = window.dialogArguments;
+	if (parentWindow != null) {		
+		parentWindow.__RPC_AGENT = window;		
+		setInterval("if (!parentWindow.__RPC_WORKING) window.close();", 100);
+	}
+}
+</script>
+<title>${title}</title>
+</head>
+<body style="overflow: hidden" onload="window_onLoad()">
+  <table width="100%" height="100%">
+    <tr valign="bottom">
+      <td align="center">${message}</td>
+    </tr>
+    <tr valign="top">
+      <td align="center">
+      	<img src="${request.getContextPath()}/dorado/smartweb2.loadFile.d?file=/skins/${skin}/working.gif">
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

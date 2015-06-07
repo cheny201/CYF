@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view noCache="true">
+  <Datasets>
+    <Dataset type="Form" id="dsCondition">
+      <MasterLink/>
+      <Fields>
+        <Field name="usercode" label="用户代码" dataType="string">
+          <Properties/>
+        </Field>
+        <Field name="username" label="用户名" dataType="string">
+          <Properties/>
+        </Field>
+      </Fields>
+      <Parameters/>
+      <Properties/>
+    </Dataset>
+    <Dataset method="queryUser" type="Wrapper" autoLoadData="false" id="dsUser" objectClazz="com.cyf.security.pojo.User" wrappedType="Marmot" pageSize="10" dataProvider="doradoDemoController">
+      <MasterLink/>
+      <Fields>
+        <Field name="usercode" label="用户代码" dataType="string">
+          <Properties/>
+        </Field>
+        <Field name="username" label="用户名" dataType="string">
+          <Properties/>
+        </Field>
+      </Fields>
+      <Parameters/>
+      <Properties/>
+    </Dataset>
+  </Datasets>
+  <Controls>
+    <Control type="AutoForm" dataset="dsCondition" id="form1" width="100%">
+      <FormGroup name="group1" title="用户查询">
+        <Element name="usercode" type="TextEditor" field="usercode">
+          <FieldLabel/>
+          <TextEditor/>
+        </Element>
+        <Element name="username" type="TextEditor" field="username">
+          <FieldLabel/>
+          <TextEditor/>
+        </Element>
+      </FormGroup>
+    </Control>
+    <Control id="button1" width="80" type="Button" value="查询">
+      <Events>
+        <Event name="onClick">cmdQuery.execute();
+</Event>
+      </Events>
+    </Control>
+    <Control width="100%" height="400" id="table1" dataset="dsUser" type="DataTable"/>
+    <Control id="cmdQuery" queryDataset="dsUser" type="QueryCommand" conditionDataset="dsCondition">
+      <Parameters/>
+    </Control>
+    <Control type="DataPilot" dataset="dsUser" id="datapilotDsUser"/>
+  </Controls>
+  <Properties/>
+</view>

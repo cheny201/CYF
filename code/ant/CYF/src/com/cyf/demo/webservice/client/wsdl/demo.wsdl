@@ -1,0 +1,128 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.ccic.com/prpall/certinotice/intf"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http"
+	xmlns:ns1="http://service.ccic.com/prpall/certinotice/bean" name="PolicyEndorNoticeService"
+	targetNamespace="http://service.ccic.com/prpall/certinotice/intf">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://service.ccic.com/prpall/certinotice/bean"
+			xmlns:ns1="http://service.ccic.com/common/bean" elementFormDefault="qualified"
+			targetNamespace="http://service.ccic.com/prpall/certinotice/bean"
+			version="1.0">
+			<xs:import namespace="http://service.ccic.com/common/bean" />
+			<xs:element name="CertiNoticeRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="requestHead" type="ns1:RequestHeadDTO" />
+						<xs:element name="requestBody" type="tns:CertiNoticeRequestBodyDTO" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CertiNoticeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="responseHead" type="ns1:ResponseHeadDTO" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="CertiNoticeRequestBodyDTO">
+				<xs:sequence>
+					<xs:element name="businessAttribute" type="xs:string" />
+					<xs:element maxOccurs="unbounded" name="certiNoInfo"
+						type="tns:certiNoInfoDTO" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="certiNoInfoDTO">
+				<xs:sequence>
+					<xs:element name="certiNo" type="xs:string" />
+					<xs:element name="certiType" type="xs:string" />
+					<xs:element name="policyNo" type="xs:string" />
+					<xs:element minOccurs="0" name="compulsoryFlag" type="xs:string" />
+					<xs:element name="status" type="xs:string" />
+					<xs:element minOccurs="0" name="effectiveTime" type="xs:string" />
+					<xs:element minOccurs="0" name="createPolicyTime" type="xs:string" />
+					<xs:element minOccurs="0" name="chargeTime" type="xs:string" />
+					<xs:element minOccurs="0" name="underWriteEndTime" type="xs:string" />
+					<xs:element minOccurs="0" name="payWay" type="xs:string" />
+					<xs:element minOccurs="0" name="payWayNo" type="xs:string" />
+					<xs:element minOccurs="0" name="validNoBZ" type="xs:string" />
+					<xs:element minOccurs="0" name="validNoCIP" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://service.ccic.com/common/bean" version="1.0">
+			<xs:complexType name="RequestHeadDTO">
+				<xs:sequence>
+					<xs:element form="qualified" minOccurs="0" name="seqNo"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="consumerSeqNo"
+						type="xs:string" />
+					<xs:element form="qualified" name="consumerID" type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="providerID"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="classCode"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="riskCode"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="regionCode"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="version"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ResponseHeadDTO">
+				<xs:sequence>
+					<xs:element form="qualified" minOccurs="0" name="seqNo"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="consumerSeqNo"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="providerSeqNo"
+						type="xs:string" />
+					<xs:element form="qualified" name="status" type="xs:int" />
+					<xs:element form="qualified" minOccurs="0" name="esbCode"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="esbMessage"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="appCode"
+						type="xs:string" />
+					<xs:element form="qualified" minOccurs="0" name="appMessage"
+						type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="certinotice">
+		<wsdl:part element="ns1:CertiNoticeRequest" name="CertiNoticeRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="certinoticeResponse">
+		<wsdl:part element="ns1:CertiNoticeResponse" name="CertiNoticeResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="CertiNotice">
+		<wsdl:operation name="certinotice">
+			<wsdl:input message="tns:certinotice" name="certinotice"></wsdl:input>
+			<wsdl:output message="tns:certinoticeResponse" name="certinoticeResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PolicyEndorNoticeServiceSoapBinding"
+		type="tns:CertiNotice">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="certinotice">
+			<soap:operation soapAction="/prpall/certinotice"
+				style="document" />
+			<wsdl:input name="certinotice">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="certinoticeResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PolicyEndorNoticeService">
+		<wsdl:port binding="tns:PolicyEndorNoticeServiceSoapBinding"
+			name="CertiNotice">
+			<soap:address location="http://127.0.0.1:8080/CYF/webservice/certiNotice" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

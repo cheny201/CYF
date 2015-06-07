@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<forwards />
+	<exceptions />
+	<controllers>
+		<controller name="marmot" clazz="org.marmot.view.dorado.action.MarmotController">
+			<action name="rpc" />
+			<action name="update" />
+		</controller>
+	</controllers>
+</mapping>
+

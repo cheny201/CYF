@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<context:component-scan base-package="com.cyf" />
+	<!-- 加载资源文件 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:com/config/*/*.properties</value>
+			</list>
+		</property>
+
+	</bean>
+
+	<!-- 配置数据源 -->
+	<bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maxPoolSize" value="${hibernate.maxPoolSize}" />
+		<property name="minPoolSize" value="${hibernate.minPoolSize}" />
+		<property name="maxIdleTime" value="${hibernate.maxIdleTime}" />
+		<property name="initialPoolSize" value="${hibernate.initialPoolSize}" />
+		<property name="maxStatements" value="${hibernate.maxStatements}" />
+	</bean>
+	
+		<!-- 使用容器数据源 -->
+<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+<!-- 		<property name="jndiName"> -->
+<!-- 			<value>cyf</value> -->
+<!-- 		</property> -->
+<!-- 		<property name="resourceRef"> -->
+<!-- 			<value>true</value> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+	<!-- Hibernate配置文件方式加载 -->
+	<!-- <bean name="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> -->
+	<!-- <property name="dataSource" ref="dataSource" /> -->
+	<!-- <property name="hibernateProperties"> -->
+	<!-- 设置Hibernate属性 -->
+	<!-- <props> -->
+	<!-- <prop key="hibernate.dialect">${hibernate.dialect}</prop> -->
+	<!-- <prop key="hibernate.show_sql">${hibernate.show_sql}</prop> -->
+	<!-- <prop key="hibernate.connection.release_mode">${hibernate.connection.release_mode}</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- <property name="mappingLocations"> -->
+	<!-- <list> -->
+	<!-- <value>classpath*:/com/model/*.hbm.xml</value> -->
+	<!-- </list> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	
+	<!-- Hibernate注解方式加载 -->
+	<bean name="sessionFactory" id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<!-- 设置Hibernate属性 -->
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.connection.release_mode">${hibernate.connection.release_mode}</prop>
+			</props>
+		</property>
+		<!-- 需要扫描的包 -->
+		
+		<property name="packagesToScan">
+			<list>
+				<value>com.cyf.security.pojo</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+<!-- 	<bean id="myTransactionManager" -->
+<!-- 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"> -->
+<!-- 		<property name="sessionFactory"> -->
+<!-- 			<ref local="sessionFactory" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="ss" class="test.spring.ProxyTest"></bean> -->
+<!-- 	<bean id="targetObject" class="test.spring.MyProxyFactoryBean" > -->
+<!-- 		<property name="transactionManager"> -->
+<!-- 			<ref bean="myTransactionManager" /> -->
+<!-- 		</property> -->
+<!-- 		<property name="target"> -->
+<!-- 			<ref bean="ss" /> -->
+<!-- 		</property> -->
+<!-- 		<property name="transactionAttributes"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="doLog">PROPAGATION_REQUIRED,-Exception</prop> -->
+<!-- 				<prop key="doTlsrno">PROPAGATION_REQUIRED,-Exception</prop> -->
+<!-- 				<prop key="callOperation">PROPAGATION_REQUIRED,-Exception</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+</beans>

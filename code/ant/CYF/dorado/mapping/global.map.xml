@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+  <units>
+    <unit name="dorado"/>
+    <unit name="marmot"/>
+  </units>
+  <forwards>
+    <forward name="no-forward" path="/dorado/noForward.d"/>
+  </forwards>
+  <exceptions>
+    <exception path="/dorado/exception.d"/>
+  </exceptions>
+  <controllers>
+    <controller name="console">
+      <action>
+        <forward name="success" path="/dorado/console.d" redirect="true"/>
+      </action>
+    </controller>
+  </controllers>
+</mapping>

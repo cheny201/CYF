@@ -1,0 +1,49 @@
+body{
+	font-family: "华文行楷";
+	font-size: 18px;
+}
+.cyf_table_div{
+	width:100%;
+	background-color:white;
+	overflow: auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c5dbec;
+}
+
+.cyf_table{
+	width: 100%;
+/* 	border-width: 1px; */
+/* 	border-style: solid; */
+/* 	border-color: #c5dbec; */
+	border-collapse:collapse;
+	text-align: center;
+}
+.cyf_th{
+	border: 1px solid #c5dbec; 
+	background: #5c9ccc url("img/ui-bg_gloss-wave_75_2191c0_500x100.png") 50% 50% repeat-x;
+	color: #ffffff; 
+	font-weight: bold;
+	cursor: pointer;
+}
+.cyf_td{
+	border-color: #c5dbec;
+	border-width: 1px;
+	border-style: solid;
+}
+.cyf_page_div{
+/* 	width:100%; */
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c5dbec;
+	background-color:#e9f8ff;
+	padding-right:10px;
+	padding-left:10px;
+	text-align: center;
+	line-height: 25px;
+	vertical-align: middle;
+}
+.cyf_page_text{
+	width: 20px;
+	height: 13px;
+}

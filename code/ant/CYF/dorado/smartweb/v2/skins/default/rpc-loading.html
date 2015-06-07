@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+body { background-color: white; font-size: 9pt; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#DDDDDD)}
+table { font-size: 9pt; }
+</style>
+<title>${title}</title>
+<script>
+var agentCloseWarning = "${agentCloseWarning}";
+var ignoreAgentCloseWarning = false;
+function window_onBeforeUnload() {
+	if (!ignoreAgentCloseWarning) event.returnValue = agentCloseWarning;
+}
+</script>
+</head>
+<body style="overflow: hidden" onbeforeunload="window_onBeforeUnload()">
+  <table width="100%" height="100%" style="table-layout: fixed">
+    <tr>
+      <td align="center" valign="middle" width="80">
+      	<img src="${request.getContextPath()}/dorado/smartweb2.loadFile.d?file=/skins/${skin}/loading.gif">
+      </td>
+      <td valign="middle">${message}</td>
+    </tr>
+  </table>
+  
+  <!-- do not delete -->
+  <script>
+  var userAgent = navigator.userAgent.toLowerCase();
+  if (userAgent.indexOf('msie') != -1) {
+	  document.writeln("<iframe src=\"${request.getContextPath()}/dorado/smartweb2.showRPCSubmitter.d\" style=\"display: none\"></iframe>");
+	}
+  </script>
+  <!-- do not delete -->
+</body>
+</html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CYF" default="war">
+	<property name="name" value="CYF">
+	</property>
+	<property name="final.name" value="${name}">
+	</property>
+	<property name="build.dir" value="../dist">
+	</property>
+	<property name="web.dir" value="../WebContent">
+	</property>
+	<property name="sourceSrc.dir" value="../src">
+	</property>
+	<property name="resources.dir" value="../resources">
+	</property>
+	<property name="test.dir" value="../test">
+	</property>
+	<property name="war.file.version" value="1.0">
+	</property>
+	<property name="jar.file.name" value="cyf-core">
+	</property>
+	<property name="jar.file.version" value="1.0">
+	</property>
+
+	<path id="project.classpath">
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- ================================================================== -->
+	<!-- Clean build file                                   			    -->
+	<!-- ================================================================== -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/web" />
+		<mkdir dir="${build.dir}/api" />
+		<mkdir dir="${build.dir}/web/WEB-INF/classes" />
+		<copy todir="${build.dir}/web">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+				<exclude name="**/lib/jbpm*.jar" />
+				<exclude name="geronimo-servlet_3.0_spec-1.0.jar" />
+				<exclude name="servlet-api.jar" />
+				<exclude name="xercesImpl.jar" />
+				<exclude name="*junit*.jar" />
+				<exclude name="**/classes/test/**" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}/web/WEB-INF/classes">
+			<fileset dir="${resources.dir}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Compile source file                                                -->
+	<!-- ================================================================== -->
+	<target name="compile" depends="init">
+		<javac destdir="${build.dir}/web/WEB-INF/classes" debug="off" target="1.5" encoding="UTF-8">
+			<classpath refid="project.classpath" />
+			<src path="${sourceSrc.dir}" />
+			<compilerarg value="-Xlint:unchecked" />
+			<compilerarg value="-Xlint:deprecation" />
+		</javac>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Make Core jar file                                   -->
+	<!-- ================================================================== -->
+	<target name="jar" depends="compile">
+		<jar destfile="${build.dir}/${jar.file.name}-${jar.file.version}.jar">
+			<fileset dir="${build.dir}/web/WEB-INF/classes" includes="com/cyf/**/*.class" excludes="com/test/**" />
+			<manifest>
+				<attribute name="Built-By" value="trust" />
+				<attribute name="Implementation-Vendor" value="Trust CO.,LTD" />
+				<attribute name="Implementation-Title" value="Trust cyf-core" />
+				<attribute name="Implementation-Version" value="${jar.file.version}" />
+				<!-- <attribute name="Main-Class" value="com.Main"/> -->
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="server">
+		
+		<delete file="${build.dir}/web/WEB-INF/classes/jdbc.properties" />
+		<delete file="${build.dir}/web/META-INF/context.xml" />
+		<!--		<delete file="${build.dir}/web/WEB-INF/classes/log4j.xml" />
+				<move file="${build.dir}/web/WEB-INF/classes/log4j-server.xml" tofile="${build.dir}/web/WEB-INF/classes/log4j.xml" /> -->
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Make Web Project war file                                   -->
+	<!-- ================================================================== -->
+	<target name="war" depends="compile,server">
+		<war destfile="${build.dir}/${final.name}.war" webxml="${build.dir}/web/WEB-INF/web.xml">
+			<fileset dir="${build.dir}/web" />
+		</war>
+		<!-- delete web dir -->
+		<delete dir="${build.dir}/web" />
+		<delete dir="${build.dir}/api" />
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Create API Doc                                   -->
+	<!-- ================================================================== -->
+	<target name="api" depends="init">
+		<javadoc destdir="${build.dir}/api" author="true" version="true" use="true" windowtitle="CYF API" stylesheetfile="cyf.css" encoding="UTF-8" noindex="off" notree="off" nonavbar="off" splitindex="true" docencoding="GBK">
+			<packageset dir="${sourceSrc.dir}" defaultexcludes="yes">
+			</packageset>
+			<!--<doctitle><![CDATA[<h1>TAF</h1>]]></doctitle>
+			    <bottom><![CDATA[<i>Copyright &#169; 2013 Dummy Corp. All Rights Reserved.</i>]]></bottom>
+			    <tag name="todo" scope="all" description="To do:"/>
+			    <group title="Group 1 Packages" packages="com.dummy.test.a*"/>
+			    <group title="Group 2 Packages" packages="com.dummy.test.b*:com.dummy.test.c*"/>
+			    <link offline="true" href="http://download.oracle.com/javase/6/docs/api/" packagelistLoc="C:\tmp"/>
+			    <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>-->
+		</javadoc>
+	</target>
+
+</project>

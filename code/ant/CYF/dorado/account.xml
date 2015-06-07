@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+	<user>
+		<name>admin</name>
+		<password>dorado</password>
+		<role>admin</role>
+		<longName>Administrator</longName>
+	</user>
+	<user>
+		<name>dev</name>
+		<password>dorado</password>
+		<role>dev</role>
+		<longName>Developer</longName>
+	</user>
+</users>
+

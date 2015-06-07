@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- Configure -->
+	<bean class="org.marmot.ConfigureInitializer" lazy-init="false" init-method="init">
+		<property name="properties">
+			<props>
+				<prop key="view.dorado.rpc.baseRPCHandler">org.marmot.view.dorado.rpc.BaseRPCHandler</prop>
+				<prop key="view.dorado.rpc.updateRPCHandler">org.marmot.view.dorado.rpc.UpdateRPCHandler</prop>
+				<prop key="view.dorado.rpc.noForward">/dorado/noForward.d</prop>
+				<prop key="view.dorado.rpc.defaultRPCAction">/marmot.rpc.d</prop>
+				<prop key="view.dorado.rpc.defaultUpdateAction">/marmot.update.d</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
