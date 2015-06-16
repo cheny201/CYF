@@ -15,6 +15,7 @@ public class DemoController{
 	@Autowired
 	private UserDao userDao;
 	
+	@SuppressWarnings("unchecked")
 	public void queryUser(DataSet dataset) throws Exception{
 		Map<String,String> map = (Map<String, String>) dataset.getParameters();
 		String usercode = map.get("usercode");

@@ -48,5 +48,15 @@ public class UserServiceImpl implements UserService {
 		return (UserDetails) userDao.getUserByUserAccount(usercode);
 	}
 
+	@Override
+	public void aa() throws Exception{
+		User u = new User();
+		u.setUsercode("admin");
+		u.setPassword("222");
+		userDao.delUser("11");
+//		userDao.saveUser(u);
+		throw new Exception();
+	}
+
 	
 }

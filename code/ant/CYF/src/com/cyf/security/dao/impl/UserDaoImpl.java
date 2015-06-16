@@ -44,4 +44,15 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void saveUser(User u) {
+		super.save(u);
+	}
+
+	@Override
+	public void delUser(String usercode) {
+		String hql = "delete User where usercode=?";
+		super.execute(hql,new Object[]{usercode});
+	}
 }

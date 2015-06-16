@@ -16,5 +16,7 @@ public interface UserDao {
 	
 	public List<User> queryByUserCode(String userCode, String comCode);
 	
+	void saveUser(User u);
 	
+	void delUser(String usercode);
 }

@@ -31,4 +31,6 @@ public interface UserService extends UserDetailsService{
 	List<User> queryByUserCode(String userCode,String comCode);
 	
 	
+	void aa() throws Exception;
+	
 }
