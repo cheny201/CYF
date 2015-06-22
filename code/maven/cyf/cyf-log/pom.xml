@@ -21,4 +21,8 @@
     	<version>1.7.12</version>
     </dependency>
   </dependencies>
+  <build>
+    <finalName>cyf-log</finalName>
+    <defaultGoal>compile</defaultGoal>
+  </build>
 </project>

@@ -15,7 +15,8 @@ import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import com.cy.cyf.exception.IOStreamException;
+import com.cy.cyf.core.Constant;
+import com.cy.cyf.core.exception.IOStreamException;
 import com.cy.cyf.log.CYFLog;
 
 public class IOUtil {

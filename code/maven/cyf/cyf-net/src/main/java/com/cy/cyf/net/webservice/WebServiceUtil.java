@@ -8,7 +8,7 @@ import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 
-import com.cy.cyf.exception.WebServiceException;
+import com.cy.cyf.core.exception.WebServiceException;
 import com.cy.cyf.net.dto.WSRequestDTO;
 import com.cy.cyf.util.ValidateUtil;
 

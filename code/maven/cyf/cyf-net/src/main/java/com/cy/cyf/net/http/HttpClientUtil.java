@@ -36,7 +36,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import com.cy.cyf.log.CYFLog;
-import com.cy.cyf.net.Constant;
+import com.cy.cyf.core.Constant;
 import com.cy.cyf.net.dto.HttpRequestDTO;
 import com.cy.cyf.util.IOUtil;
 

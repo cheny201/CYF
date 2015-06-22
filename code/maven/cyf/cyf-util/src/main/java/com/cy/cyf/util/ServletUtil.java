@@ -7,7 +7,8 @@ import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.cy.cyf.exception.CYFException;
+import com.cy.cyf.core.Constant;
+import com.cy.cyf.core.exception.CYFException;
 import com.cy.cyf.log.CYFLog;
 import com.google.gson.GsonBuilder;
 
@@ -21,7 +22,7 @@ public class ServletUtil {
 	 */
 	public static void downLoad(HttpServletResponse response,String path,String encoding){
 		if(ValidateUtil.isEmpty(encoding)){
-			encoding = Constant.ENCODING_UTF8;
+			encoding = Constant.ENCODING;
 		}
 		response.setCharacterEncoding(encoding);
 		File f = new File(path);
@@ -55,14 +56,14 @@ public class ServletUtil {
 	 */
 	public static void writeJsonToPage(Object obj, HttpServletResponse resp,String dateFormat) {
 		try {
-			resp.setCharacterEncoding(Constant.ENCODING_UTF8);// 设置编码
+			resp.setCharacterEncoding(Constant.ENCODING);// 设置编码
 			resp.setHeader("Cache-Control", "no-cache");
 			String str = null;
 			if(obj instanceof String){
-				resp.setContentType("text/xml;charset="+Constant.ENCODING_UTF8);
+				resp.setContentType("text/xml;charset="+Constant.ENCODING);
 				str = (String) obj;
 			}else{
-				resp.setContentType("text/json;charset="+Constant.ENCODING_UTF8);
+				resp.setContentType("text/json;charset="+Constant.ENCODING);
 				if(ValidateUtil.isEmail(dateFormat)){
 					dateFormat = Constant.DATE_FORMAT;
 				}

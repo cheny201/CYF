@@ -1,6 +1,6 @@
 package com.cy.cyf.net.dto;
 
-import com.cy.cyf.net.Constant;
+import com.cy.cyf.core.Constant;
 
 public class WSRequestDTO {
 	

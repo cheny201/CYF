@@ -15,6 +15,7 @@
   	<cxf.version>2.7.0</cxf.version>
   	<org.springframework.version>3.2.8.RELEASE</org.springframework.version>
 	<org.springframework.security>3.1.3.RELEASE</org.springframework.security>
+	<org.hibernate.version>3.6.4.Final</org.hibernate.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -22,70 +23,25 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-aop</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-core</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-beans</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-context</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-context-support</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-web</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-webmvc</artifactId>
-    	<version>${org.springframework.version}</version>
-    </dependency>
-    <dependency>
     	<groupId>javax.servlet</groupId>
     	<artifactId>servlet-api</artifactId>
     	<version>2.5</version>
-    </dependency>
-    <dependency>
-    	<groupId>com.google.code.gson</groupId>
-    	<artifactId>gson</artifactId>
-    	<version>2.3.1</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.springframework</groupId>
-    	<artifactId>spring-orm</artifactId>
-    	<version>3.2.8.RELEASE</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.hibernate</groupId>
-    	<artifactId>hibernate-core</artifactId>
-    	<version>3.6.4.Final</version>
     </dependency>
   </dependencies>
   <build>
     <finalName>cyf</finalName>
     <defaultGoal>compile</defaultGoal>
+    <plugins>  
+	    <plugin>  
+	        <groupId>org.apache.maven.plugins</groupId>  
+	        <artifactId>maven-compiler-plugin</artifactId>  
+	        <version>3.3</version>  
+	        <configuration>  
+	            <source>1.7</source>  
+	            <target>1.7</target>  
+	        </configuration>  
+	    </plugin>  
+	</plugins> 
   </build>
   <modules>
     
@@ -94,6 +50,6 @@
     <module>cyf-log</module>
     <module>cyf-util</module>
     <module>cyf-batch</module>
-    <module>cyf-exception</module>
+    <module>cyf-framework</module>
   </modules>
 </project>

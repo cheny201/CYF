@@ -4,7 +4,19 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-        <property name="context-root" value="cyf-web"/>
+        <dependent-module archiveName="cyf-framework-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-framework/cyf-framework">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cyf-util-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-util/cyf-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cyf-log-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-log/cyf-log">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cyf-core-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-core/cyf-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/cyf-web/target/classes"/>
+        <property name="context-root" value="cyf-web"/>
     </wb-module>
 </project-modules>

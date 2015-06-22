@@ -10,7 +10,7 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.spi.HttpServerProvider;
 
-
+@SuppressWarnings("restriction")
 public class HttpServerUtil implements HttpHandler{
 
 	@Override

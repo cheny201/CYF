@@ -4,7 +4,7 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 
-import com.cy.cyf.net.Constant;
+import com.cy.cyf.core.Constant;
 import com.cy.cyf.util.ValidateUtil;
 
 /**

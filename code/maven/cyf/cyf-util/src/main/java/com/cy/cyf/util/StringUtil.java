@@ -1,6 +1,9 @@
 package com.cy.cyf.util;
 
 import java.text.MessageFormat;
+import java.util.Map;
+
+import com.google.gson.GsonBuilder;
 
 public class StringUtil {
 
@@ -15,6 +18,11 @@ public class StringUtil {
 	 */
 	public static String stringFormat(String pattern, Object... args) {
 		return MessageFormat.format(pattern, args);
+	}
+	
+	public static Map<String,String> xmlToMap(){
+		new GsonBuilder().create();
+		return null;
 	}
 
 }

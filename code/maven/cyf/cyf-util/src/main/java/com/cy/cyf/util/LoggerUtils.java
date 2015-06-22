@@ -5,6 +5,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import com.cy.cyf.core.Constant;
+
 /**
  * 日志工具类
  * @author ChenY201
@@ -47,7 +49,7 @@ public class LoggerUtils {
 		// 这里使用了环境变量[catalina.home]，只有在tomcat环境下才可以取到
 		appender.setFile(path);
 		// log的文字码
-		appender.setEncoding(Constant.ENCODING_UTF8);
+		appender.setEncoding(Constant.ENCODING);
 		// true:在已存在log文件后面追加 false:新log覆盖以前的log
 		appender.setAppend(true);
 		// 适用当前配置
