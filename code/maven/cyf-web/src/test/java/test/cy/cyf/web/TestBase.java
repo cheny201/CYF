@@ -1,7 +1,8 @@
-package com.cy.cyf.web;
+package test.cy.cyf.web;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,9 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 2014-4-30
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"/spring.xml"})
-//@ContextConfiguration({"/WEB-INF/lib/cyf-framework-0.0.1.jar*/com/cy/cyf/frameworw/config/spring/spring.xml"})
-//lib/validator-rest-1.0.jar*/cms-validator-common.xml
+@ContextConfiguration({"classpath*:com/cy/config/spring/spring.xml"})
 public class TestBase {
 
 	@Autowired
@@ -32,5 +31,10 @@ public class TestBase {
 	@After
 	public void destory(){
 		
+	}
+	
+	@Test
+	public void test(){
+		System.out.println("---test---");
 	}
 }

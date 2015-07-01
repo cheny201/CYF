@@ -1,4 +1,4 @@
-package com.cy.cyf.web;
+package com.cy.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

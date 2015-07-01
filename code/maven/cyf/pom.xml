@@ -16,6 +16,7 @@
   	<org.springframework.version>3.2.8.RELEASE</org.springframework.version>
 	<org.springframework.security>3.1.3.RELEASE</org.springframework.security>
 	<org.hibernate.version>3.6.4.Final</org.hibernate.version>
+    <server.tomcat.version>7.0.62</server.tomcat.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -51,5 +52,6 @@
     <module>cyf-util</module>
     <module>cyf-batch</module>
     <module>cyf-framework</module>
+    <module>cyf-embed-server</module>
   </modules>
 </project>

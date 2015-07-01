@@ -10,10 +10,13 @@
         <dependent-module archiveName="cyf-util-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-util/cyf-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="cyf-log-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-log/cyf-log">
+        <dependent-module archiveName="cyf-core-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-core/cyf-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="cyf-core-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-core/cyf-core">
+        <dependent-module archiveName="cyf-embed-server-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-embed-server/cyf-embed-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cyf-log-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cyf-log/cyf-log">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/cyf-web/target/classes"/>

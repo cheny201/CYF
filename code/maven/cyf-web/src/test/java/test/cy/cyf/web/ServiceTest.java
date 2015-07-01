@@ -1,4 +1,4 @@
-package com.cy.cyf.web;
+package test.cy.cyf.web;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
