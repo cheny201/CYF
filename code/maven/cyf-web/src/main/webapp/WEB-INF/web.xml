@@ -17,9 +17,9 @@
 		</param-value>
 	</context-param>
 
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+<!-- 	<listener> -->
+<!-- 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
+<!-- 	</listener> -->
 
 	<!-- spring security start -->
 <!-- 	<filter> -->
@@ -38,19 +38,19 @@
 
 
 	<!-- springMVC start -->
-	<servlet>
-		<servlet-name>mvcServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath*:com/cy/config/spring/spring-mvc.xml</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>mvcServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>mvcServlet</servlet-name> -->
+<!-- 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> -->
+<!-- 		<init-param> -->
+<!-- 			<param-name>contextConfigLocation</param-name> -->
+<!-- 			<param-value>classpath*:com/cy/config/spring/spring-mvc.xml</param-value> -->
+<!-- 		</init-param> -->
+<!-- 		<load-on-startup>1</load-on-startup> -->
+<!-- 	</servlet> -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>mvcServlet</servlet-name> -->
+<!-- 		<url-pattern>*.do</url-pattern> -->
+<!-- 	</servlet-mapping> -->
 	<!-- springMVC END -->
 
 <!-- 	<listener> -->
@@ -80,6 +80,28 @@
 <!-- 		<url-pattern>/DisplayChart</url-pattern> -->
 <!-- 	</servlet-mapping> -->
 	<!-- JFreeChart End -->
+
+
+
+
+	<!-- DEMO -->
+	<servlet>
+		<servlet-name>load-file</servlet-name>
+		<servlet-class>com.cy.project.demo.file.FileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>load-file</servlet-name>
+		<url-pattern>/loadfile</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>websocket-demo</servlet-name>
+		<servlet-class>com.cy.project.demo.websocket.WebSocketDemo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>websocket-demo</servlet-name>
+		<url-pattern>/websocket.demo</url-pattern>
+	</servlet-mapping>
 
 
 	<session-config>

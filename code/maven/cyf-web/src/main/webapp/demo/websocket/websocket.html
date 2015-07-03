@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+<head>
+　　	<title>WebSocketDemo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<meta name="Author" content="网页作者" /> 
+	<meta name="Copyright" content="网站版权" /> 
+	<meta name="keywords" content="网站关键字" />
+	<meta name="description" content="网站描述" />
+	<link rel="Shortcut Icon" href="网站.ico图标路径" />
+	<link type="text/css" rel="stylesheet" href="../../resources/common/base.css" />
+	<style type="text/css">
+	.chat-room{
+		width: 90%;
+		margin-left: 5%;
+	}
+	.chat-room div{
+		height: 300px;
+		width: 100%;
+		overflow: auto;
+		border: 1px solid black;
+	}
+	.chat-room div article{
+		width: 100%;
+	}
+	.chat-room div article header{
+		color:red;
+		width: 100%;
+	}
+	.chat-room div article section{
+		font-size:16px;
+		width: 100%;
+	}
+	.chat-room textarea{
+		height: 100px;
+		width: 100%;
+		border: 1px solid black;
+		margin-top: 20px;
+		
+	}
+	.chat-room button{
+		margin-top: 20px;
+		float: right;
+		width: 100px;
+		height: 30px
+	}
+	
+	</style>
+</head>
+<body>
+<div class="chat-room">
+	<div id="message_content">
+<!-- 		<article> -->
+<!-- 			<header></header> -->
+<!-- 			<section></section> -->
+<!-- 		</article> -->
+	</div>
+	<textarea id="sendText" placeholder="输入信息"></textarea>
+	<button onclick="send()">发送</button>
+</div>
+
+
+<script type="text/javascript" src="../../resources/common/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+var socket = new WebSocket("ws://127.0.0.1:8080/cyf-web/websocket.demo");
+socket.onopen=function(event){
+	console.log("open");
+},
+socket.onclose=function(event){
+	console.log("close");
+},
+socket.onmessage=function(event){
+	console.log(event.data);
+	var data = eval("("+event.data+")");
+	var article = document.createElement("article");
+	var header = document.createElement("header");
+	var section = document.createElement("section");
+	header.innerHTML = data.title;
+	section.innerHTML = data.message;
+	article.appendChild(header);
+	article.appendChild(section);
+	document.getElementById("message_content").appendChild(article);
+}
+function send(){
+	var s = document.getElementById("sendText").value;
+	socket.send(s);
+}
+</script>
+</body>
+</html>
