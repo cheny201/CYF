@@ -4,20 +4,20 @@ import com.cy.cyf.core.Constant;
 
 public class EncryptDTO {
 	
-	private String type;
+	private int type;
 	private String str;
 	private String encoding = Constant.ENCODING;
 	private String salt;
 	private String token;
 	
-	public EncryptDTO(String type, String str) {
+	public EncryptDTO(int type, String str) {
 		this.type = type;
 		this.str = str;
 	}
-	public String getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 	public String getStr() {

@@ -8,13 +8,13 @@ import com.cy.cyf.log.CYFLog;
 
 public class EncryptUtil {
 	
-	public static final String MD5 = "MD5";
-    public static final String SHA1 = "SHA1";
-    public static final String HmacMD5 = "HmacMD5";
-    public static final String HmacSHA1 = "HmacSHA1";
-    public static final String DES = "DES";
-    public static final String AES = "AES";
-    public static final String BASE64 = "BASE64";
+	public static final int MD5 = 1;
+    public static final int SHA1 = 2;
+    public static final int HmacMD5 = 3;
+    public static final int HmacSHA1 = 4;
+    public static final int DES = 5;
+    public static final int AES = 6;
+    public static final int BASE64 = 7;
 	
     
     public static void main(String[] args) {

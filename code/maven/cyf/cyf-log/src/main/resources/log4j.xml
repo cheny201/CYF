@@ -98,7 +98,7 @@
 		<level value="DEBUG"></level>
 	</logger>
 	<root>
-		<level value="DEBUG"/>
+		<level value="debug"/>
 <!-- 		<appender-ref ref="traceLog"/> -->
 <!-- 		<appender-ref ref="debugLog"/> -->
 <!-- 		<appender-ref ref="infoLog"/> -->
