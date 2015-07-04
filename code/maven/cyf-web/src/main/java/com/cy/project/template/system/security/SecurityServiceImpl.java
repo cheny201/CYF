@@ -1,4 +1,4 @@
-package com.cy.project.security;
+package com.cy.project.template.system.security;
 
 import org.springframework.stereotype.Service;
 

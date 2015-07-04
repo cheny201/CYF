@@ -32,6 +32,11 @@
     	<artifactId>cyf-embed-server</artifactId>
     	<version>${cyf.version}</version>
     </dependency>
+    <dependency>
+    	<groupId>com.cy.cyf</groupId>
+    	<artifactId>cyf-net</artifactId>
+    	<version>${cyf.version}</version>
+    </dependency>
   </dependencies>
   
   <build>

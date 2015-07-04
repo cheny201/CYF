@@ -9,8 +9,8 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	
-	<jaxws:endpoint id="certiNoticeEP" implementor="#policyEndorNoticeService"
-		address="/certiNotice">
+	<jaxws:endpoint id="webServiceDemoEP" implementor="#webServiceDemo"
+		address="/webServiceDemo">
 		<!-- 请求报文日志 -->
 <!-- 		<jaxws:inInterceptors> -->
 <!-- 			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor" /> -->

@@ -26,7 +26,6 @@ import com.cy.cyf.util.ValidateUtil;
 
 public class CYFConcurrentSessionFilter extends GenericFilterBean {
 
-
     private SessionRegistry sessionRegistry;
     private String expiredUrl;
     private LogoutHandler[] handlers = new LogoutHandler[] {new SecurityContextLogoutHandler()};

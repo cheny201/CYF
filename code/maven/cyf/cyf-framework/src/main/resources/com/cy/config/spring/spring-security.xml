@@ -13,12 +13,13 @@
 		<beans:property name="decisionVoters">
 			<beans:list>
 			    <beans:ref bean="urlAccessDecisionVoter"/>
+			    <beans:ref bean="webserviceAccessDecisionVoter"/>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
 	<!-- 自定义voter -->
-	<beans:bean id="urlAccessDecisionVoter" class="com.cy.cyf.framework.security.voter.URLAccessDecisionVoter"/>
-	
+<!-- 	<beans:bean id="urlAccessDecisionVoter" class="com.cy.cyf.framework.security.voter.URLAccessDecisionVoter"/> -->
+	<beans:bean id="webserviceAccessDecisionVoter" class="com.cy.cyf.framework.security.voter.WebserviceAccessDecisionVoter"/>
    <http access-decision-manager-ref="accessDecisionManager" auto-config="true">
 		<intercept-url pattern="/**/resources/**" access="NONE" />
    		<intercept-url pattern="/**/*.js" access="NONE"/>
@@ -93,7 +94,7 @@
    </beans:bean>
    
    <!-- filters -->
-   <beans:bean id="cyfConcurrentSessionFilter" class="com.cyf.security.filter.CYFConcurrentSessionFilter">
+   <beans:bean id="cyfConcurrentSessionFilter" class="com.cy.cyf.framework.security.filter.CYFConcurrentSessionFilter">
    	 <beans:property name="sessionRegistry" ref="sessionRegistry"></beans:property>
    </beans:bean>
    <!-- <beans:bean id="usernamePasswordAuthenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">

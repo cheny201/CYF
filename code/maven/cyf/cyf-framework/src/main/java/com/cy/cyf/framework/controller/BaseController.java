@@ -12,7 +12,7 @@ import com.cy.cyf.log.CYFLog;
 @Controller
 public class BaseController {
 	
-//	@Autowired
+	@Autowired
 	private ExceptionHandlerService exceptionHandlerService;
 	
 	@ExceptionHandler(Exception.class)
