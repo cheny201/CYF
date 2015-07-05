@@ -78,3 +78,6 @@ input[type="submit"] {
 button {
     cursor: pointer;
 }
+.clear{
+	clear: both;
+}

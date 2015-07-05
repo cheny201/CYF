@@ -23,7 +23,7 @@ import com.cy.project.weixin.service.WeiXinService;
 @Controller
 public class WXController extends BaseController{
 	
-	private String EncodingAESKey = "OfMPPyjAvsWodgstqNbKbpdyjP04nw9CDW7nPcW0ija";
+//	private String EncodingAESKey = "OfMPPyjAvsWodgstqNbKbpdyjP04nw9CDW7nPcW0ija";
 	private String TOKEN = "cyftest";
 	
 	

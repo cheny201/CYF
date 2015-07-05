@@ -33,8 +33,8 @@
 		<intercept-url pattern="/**/common/**" access="NONE"/>
 		<intercept-url pattern="/**/DisplayChart" access="NONE"/>
 		
-		<intercept-url pattern="/**/view/demo/**/*.jsp" access="NONE"/>
-		<intercept-url pattern="/demo/*.do" access="NONE" />
+		<intercept-url pattern="/**/demo/**" access="NONE"/>
+		<intercept-url pattern="/**/*.demo" access="NONE" />
 		
 		<intercept-url pattern="/welcome.jsp" access="LOGIN"/>
 		<intercept-url pattern="/error.jsp" access="LOGIN" />

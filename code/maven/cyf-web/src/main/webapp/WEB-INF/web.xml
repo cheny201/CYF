@@ -27,10 +27,6 @@
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-<!-- 		<init-param> -->
-<!-- 			<param-name>contextConfigLocation</param-name> -->
-<!-- 			<param-value>classpath*:com/cy/config/spring/spring-security.xml</param-value> -->
-<!-- 		</init-param> -->
 	</filter>
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -94,7 +90,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>load-file</servlet-name>
-		<url-pattern>/loadfile</url-pattern>
+		<url-pattern>/loadfile.demo</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
