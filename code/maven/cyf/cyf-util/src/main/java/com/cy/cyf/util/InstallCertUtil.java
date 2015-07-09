@@ -1,4 +1,4 @@
-package com.cy.cyf.net.mail;
+package com.cy.cyf.util;
 /*
  * Copyright 2006 Sun Microsystems, Inc.  All Rights Reserved.
  *
@@ -31,13 +31,16 @@ package com.cy.cyf.net.mail;
  */
 
 import java.io.*;
-
 import java.security.*;
 import java.security.cert.*;
 
 import javax.net.ssl.*;
 
-public class InstallCert {
+public class InstallCertUtil {
+	
+	public static void main(String[] args) throws Exception{
+		create(new String[]{"mail.msthamc.com:465"});
+	}
 
 	/**
 	 * 使用方法：
@@ -45,7 +48,7 @@ public class InstallCert {
 	 * @param args
 	 * @throws Exception
 	 */
-    public static void main(String[] args) throws Exception {
+    public static void create(String[] args) throws Exception{
 	String host;
 	int port;
 	char[] passphrase;
@@ -105,9 +108,6 @@ public class InstallCert {
 	    return;
 	}
 
-	BufferedReader reader =
-		new BufferedReader(new InputStreamReader(System.in));
-
 	System.out.println();
 	System.out.println("Server sent " + chain.length + " certificate(s):");
 	System.out.println();
@@ -126,7 +126,7 @@ public class InstallCert {
 	}
 
 	System.out.println("Enter certificate to add to trusted keystore or 'q' to quit: [1]");
-	String line = reader.readLine().trim();
+	String line = "";
 	int k;
 	try {
 	    k = (line.length() == 0) ? 0 : Integer.parseInt(line) - 1;

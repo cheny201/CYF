@@ -30,11 +30,19 @@ public class MainTest extends TestCase{
 		MailInfo m2 = new MailInfo();
 		m2.setToAddress("404369230@qq.com");
 		m2.setCharset("utf-8");
-		m2.setContent("有附件");
-		m2.setSubject("测试2");
-		m2.setFiles(new File[]{new File("C:/Users/Administrator.2013-20140324PL/Desktop/1.png")});
+		m2.setContent("<html><head></head><body><h2>有附件</h2></body></html>");
+		m2.setSubject("测试2-html");
+		m2.setHTML(true);
+		m2.setFiles(new File[]{new File("f:/资料网址.doc")});
+		MailInfo m3 = new MailInfo();
+		m3.setToAddress("404369230@qq.com");
+		m3.setCharset("utf-8");
+		m3.setContent("<html><head></head><body><h2>222222222222</h2></body></html>");
+		m3.setSubject("测试3-html");
+		m3.setHTML(true);
 		MailClient client = new MailClient("smtp.163.com", "cheny201@163.com","陈颖","cheny201", "chenying201.", false);
-		client.send(new MailInfo[]{m1,m2});
+//		MailClient client = new MailClient("mail.msthamc.com", "jiwo@msthamc.com","陈颖","jiwo", "thamco2012", true);
+		client.send(new MailInfo[]{m2});
 	}
 	
 	

@@ -1,21 +1,22 @@
 package com.cy.cyf.net.mail;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Address;
-import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
 
+import com.cy.cyf.net.dto.AuthDTO;
 import com.cy.cyf.util.ValidateUtil;
 
 public class MailClient {
@@ -46,7 +47,7 @@ public class MailClient {
 		this.isSSL = isSSL;
 	}
 
-	private MimeMessage createMessage(MailInfo mailInfo) throws MessagingException, UnsupportedEncodingException{
+	private MimeMessage createMessage(MailInfo mailInfo) throws MessagingException, IOException{
 		MimeMessage message = new MimeMessage(this.session);
 		
 		//添加发送人
@@ -69,11 +70,22 @@ public class MailClient {
 			MimeMultipart mimeMultiPart = new MimeMultipart(MIXED);
 			File[] files = mailInfo.getFiles();
 			for (int i = 0; i < files.length; i++) {
-				
+				MimeBodyPart filePart = new MimeBodyPart();
+				filePart.attachFile(files[i]);
+				filePart.addHeader("Content-Disposition", Part.ATTACHMENT);
+				filePart.setFileName(MimeUtility.encodeText(files[i].getName()));
+				mimeMultiPart.addBodyPart(filePart);
 			}
 			
 			MimeBodyPart textPart = new MimeBodyPart();
-			textPart.setText(mailInfo.getContent(), mailInfo.getCharset());
+			if(mailInfo.isHTML()){
+				textPart.setContent(mailInfo.getContent(),"text/html;charset="+mailInfo.getCharset());
+			}else{
+				textPart.setText(mailInfo.getContent(), mailInfo.getCharset());
+			}
+			
+			
+			
 			mimeMultiPart.addBodyPart(textPart);
 			
 			message.setContent(mimeMultiPart);
@@ -85,19 +97,19 @@ public class MailClient {
 		return message;
 	}
 	
-	private void createSession(){
+	private void createSession() throws Exception{
 		Properties props = new Properties();
 		props.put("mail.smtp.host", this.host);
 		props.put("mail.smtp.auth", "true");
 		
 		props.put("mail.smtp.auth", "true");
-		props.put("mail.stmp.timeout", "60000");//默认不超时
-		props.put("mail.stmp.port", "25");
+		props.put("mail.smtp.timeout", "60000");//默认不超时
+		props.put("mail.smtp.port", "25");
 		if(this.isSSL){
 			/**
 			 * SSL需要证书，可以使用CertUtil类生成，生成后将证书放入java_home/lib/security目录中
 			 */
-			props.put("mail.stmp.port", "465");
+			props.put("mail.smtp.port", "465");
 			props.setProperty("mail.smtp.starttls.enable","true");
 			props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");  
 			props.setProperty("mail.smtp.socketFactory.fallback", "false");
@@ -105,28 +117,10 @@ public class MailClient {
 		
 		props.put("mail.transport.protocol", PROTOCOL);
 //		props.put("mail.store.protocol", MAIL_SRORE_PROTOCOL);
-		this.session = Session.getDefaultInstance(props, new CYFMailAuth(userName,password));
+		this.session = Session.getDefaultInstance(props, new AuthDTO(userName,password));
 	}
 	
-	
-	class CYFMailAuth extends Authenticator{
-		private String username;
-		private String password;
-		public CYFMailAuth(String username,String password){
-			this.username = username;
-			this.password = password;
-		}
-		
-		@Override
-		protected PasswordAuthentication getPasswordAuthentication() {
-			return new PasswordAuthentication(username, password);
-		}
-		
-	}
-	
-	
-	
-	public void send(MailInfo[] mailInfos) throws MessagingException, UnsupportedEncodingException{
+	public void send(MailInfo[] mailInfos) throws Exception{
 		createSession();
 		Transport transport = session.getTransport(PROTOCOL);
 		transport.connect();

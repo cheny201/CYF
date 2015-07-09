@@ -1,9 +1,17 @@
 package com.cy.cyf.net.dto;
 
-public class AuthDTO {
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
+
+public class AuthDTO extends Authenticator{
 	
 	private String userName;
 	private String password;
+	
+	@Override
+	protected PasswordAuthentication getPasswordAuthentication() {
+		return new PasswordAuthentication(userName, password);
+	}
 	
 	public AuthDTO(String userName, String password) {
 		this.userName = userName;

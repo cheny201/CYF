@@ -394,14 +394,14 @@ public class MailProcess {
 	}
 
 	public static void main(String[] args) {
-		MailProcess mailProcess = new MailProcess("smtp.163.com","25","cheny201","chenying201.","cheny201@163.com",false);
-//		MailProcess mailProcess = new MailProcess("mail.msthamc.com","465","jiwo","thamco2012","jiwo@msthamc.com",true);
+//		MailProcess mailProcess = new MailProcess("smtp.163.com","25","cheny201","chenying201.","cheny201@163.com",false);
+		MailProcess mailProcess = new MailProcess("mail.msthamc.com","465","jiwo","thamco2012","jiwo@msthamc.com",true);
 		mailProcess.setMessageHead("CYFTest", "utf-8", "404369230@qq.com", null, null);
-//		mailProcess.sendSimpleText("测试", "utf-8");
-		AttachmentInfo a = new AttachmentInfo();
-		a.setFileName("C:\\Users\\Administrator.2013-20140324PL\\Desktop\\民生通惠测试邮箱.txt");
-		AttachmentInfo[] attachmentInfos = new AttachmentInfo[]{a};
-		mailProcess.setAttachmentInfos(attachmentInfos);
-		mailProcess.sendText("测试", "utf-8");
+		mailProcess.sendSimpleText("测试", "utf-8");
+//		AttachmentInfo a = new AttachmentInfo();
+//		a.setFileName("C:\\Users\\Administrator.2013-20140324PL\\Desktop\\民生通惠测试邮箱.txt");
+//		AttachmentInfo[] attachmentInfos = new AttachmentInfo[]{a};
+//		mailProcess.setAttachmentInfos(attachmentInfos);
+//		mailProcess.sendText("测试", "utf-8");
 	}
 }

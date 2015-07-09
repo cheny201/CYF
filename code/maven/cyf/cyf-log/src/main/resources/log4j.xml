@@ -99,12 +99,12 @@
 	</logger>
 	<root>
 		<level value="debug"/>
-<!-- 		<appender-ref ref="traceLog"/> -->
-<!-- 		<appender-ref ref="debugLog"/> -->
-<!-- 		<appender-ref ref="infoLog"/> -->
-<!-- 		<appender-ref ref="warnLog"/> -->
-<!-- 		<appender-ref ref="errorLog"/> -->
-<!-- 		<appender-ref ref="fatalLog"/> -->
+		<appender-ref ref="traceLog"/>
+		<appender-ref ref="debugLog"/>
+		<appender-ref ref="infoLog"/>
+		<appender-ref ref="warnLog"/>
+		<appender-ref ref="errorLog"/>
+		<appender-ref ref="fatalLog"/>
 		<appender-ref ref="consoleLog"/>
 	</root>
 </log4j:configuration>

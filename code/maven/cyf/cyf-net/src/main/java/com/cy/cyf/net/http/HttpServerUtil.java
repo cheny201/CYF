@@ -11,13 +11,10 @@ import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.spi.HttpServerProvider;
 
 @SuppressWarnings("restriction")
-public class HttpServerUtil implements HttpHandler{
+public abstract class HttpServerUtil implements HttpHandler{
 
 	@Override
-	public void handle(HttpExchange arg0) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void handle(HttpExchange arg0) throws IOException;
 	
 	/**
 	 * 创建并启动HTTPServer
@@ -45,9 +42,4 @@ public class HttpServerUtil implements HttpHandler{
 			CYFLog.error("==========HTTPServer启动失败======",e);
 		}
 	}
-	
-	public static void main(String[] args) {
-		createServer("/test",new HttpServerUtil(),8080,50,null);
-	}
-
 }

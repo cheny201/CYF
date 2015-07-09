@@ -2,17 +2,44 @@ package com.cy.cyf.log;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.net.SMTPAppender;
 /**
  * 日志工具类
  * 
  * @author ChenY201
  * @date 2015年6月2日
  */
-public class CYFLog {
+public class CYFLog{
 
     private static Logger log = Logger.getLogger(CYFLog.class.getName(),new CYFLoggerFactory());
-
+    
+    static{
+    	System.out.println("--------------");
+		if(CYFLogConfig.isSendMail){
+			SMTPAppender appender = new SMTPAppender();  
+		        try {  
+		            appender.setSMTPUsername("cheny201");  
+		            appender.setSMTPPassword("chenying201.");  
+		            appender.setTo("404369230@qq.com");  
+		            appender.setFrom("cheny201@163.com");  
+		            // SMTP服务器 smtp.163.com  
+		            appender.setSMTPHost("smtp.163.com");  
+		            appender.setLocationInfo(true);  
+		            appender.setSubject("Test Mail From Log4J");  
+		            appender.setLayout(new PatternLayout()); 
+		            appender.setThreshold(Level.DEBUG);
+		            appender.setBufferSize(1);
+		            appender.setEvaluator(new CYFTriggeringEventEvaluator());
+//		            appender.setSendOnClose(true);
+		            appender.activateOptions(); 
+		            log.addAppender(appender);  
+		        } catch (Exception e) {  
+		            log.error("Printing ERROR Statements", e);  
+		        }  
+		}
+	}
+    
     public static void trace(String msg) {
         log.trace(msg);
     }
