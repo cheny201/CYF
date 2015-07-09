@@ -50,18 +50,6 @@ public class MailProcess {
 	
 	/**
 	 * 初始化
-	 * <P>
-	 * 通过properties文件加载连接信息
-	 * @throws MailException
-	 * @since 2013-06-18
-	 */
-	public MailProcess(Properties p) throws MailException{
-		session = Session.getDefaultInstance(p,new CYFMailAuth(p.getProperty("mail.smtp.username"), p.getProperty("mail.smtp.password")));
-		message = new MimeMessage(session);
-	}
-	
-	/**
-	 * 初始化
 	 * <p>
 	 * 指定连接信息
 	 * @param host 服务器地址
@@ -71,22 +59,32 @@ public class MailProcess {
 	 * @param from 发件人邮箱地址
 	 * @since 2013-06-18
 	 */
-	public MailProcess(String host,String port,String username,String password,String from) throws MailException{
-		session = createSession(host,port,username,password);
+	public MailProcess(String host,String port,String username,String password,String from,boolean isSSL) throws MailException{
+		session = createSession(host,port,username,password,isSSL);
 		message = new MimeMessage(session);
 		try{
 			message.addFrom(InternetAddress.parse(from));
 		}catch (Exception e) {
 			throw new MailException(e);
 		}
+		
 	}
 	
-	public Session createSession(String host,String port,String username,String password){
+	public Session createSession(String host,String port,String username,String password,boolean isSSL){
 		Properties p = new Properties();
 		p.setProperty("mail.transport.protocol", MailProcess.protocol);
 		p.setProperty("mail.smtp.host", host);
 		p.setProperty("mail.smtp.port", port);
+		p.setProperty("mail.smtp.timeout", "60000");
 		p.setProperty("mail.smtp.auth", "true");
+		if(isSSL){
+			/**
+			 * SSL需要证书，可以使用CertUtil类生成，生成后将证书放入java_home/lib/security目录中
+			 */
+			p.setProperty("mail.smtp.starttls.enable","true");
+			p.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");  
+			p.setProperty("mail.smtp.socketFactory.fallback", "false");
+		}
 		
 		return Session.getDefaultInstance(p,new CYFMailAuth(username, password));
 	}
@@ -142,6 +140,10 @@ public class MailProcess {
 			mimeMultiPart = new MimeMultipart(MailProcess.MIXED);
 		}
 		return message;
+	}
+	
+	public void addSSLSetting(String host,String port) throws Exception{
+		CertUtil.createCert(new String[]{host+":"+port});
 	}
 	
 	/**
@@ -392,8 +394,14 @@ public class MailProcess {
 	}
 
 	public static void main(String[] args) {
-		MailProcess mailProcess = new MailProcess("smtp.163.com","25","cheny201","chenying201.","cheny201@163.com");
+		MailProcess mailProcess = new MailProcess("smtp.163.com","25","cheny201","chenying201.","cheny201@163.com",false);
+//		MailProcess mailProcess = new MailProcess("mail.msthamc.com","465","jiwo","thamco2012","jiwo@msthamc.com",true);
 		mailProcess.setMessageHead("CYFTest", "utf-8", "404369230@qq.com", null, null);
-		mailProcess.sendSimpleText("测试", "utf-8");
+//		mailProcess.sendSimpleText("测试", "utf-8");
+		AttachmentInfo a = new AttachmentInfo();
+		a.setFileName("C:\\Users\\Administrator.2013-20140324PL\\Desktop\\民生通惠测试邮箱.txt");
+		AttachmentInfo[] attachmentInfos = new AttachmentInfo[]{a};
+		mailProcess.setAttachmentInfos(attachmentInfos);
+		mailProcess.sendText("测试", "utf-8");
 	}
 }
