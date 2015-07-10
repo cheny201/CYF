@@ -22,7 +22,7 @@
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">  
 			<param name="LevelMax" value="debug" />  
 			<param name="LevelMin" value="debug" />  
-		</filter>  
+		</filter>
 	</appender>
 	
 	<appender name="infoLog" class="org.apache.log4j.DailyRollingFileAppender">

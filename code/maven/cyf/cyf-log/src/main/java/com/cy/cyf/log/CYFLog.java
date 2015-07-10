@@ -4,6 +4,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.net.SMTPAppender;
+import org.apache.log4j.varia.LevelRangeFilter;
 /**
  * 日志工具类
  * 
@@ -15,28 +16,44 @@ public class CYFLog{
     private static Logger log = Logger.getLogger(CYFLog.class.getName(),new CYFLoggerFactory());
     
     static{
-    	System.out.println("--------------");
-		if(CYFLogConfig.isSendMail){
+    	
+		if(CYFLogConfig.getFromAddress() != null){
+			log.debug("Log4j添加邮件功能--------------开始");
 			SMTPAppender appender = new SMTPAppender();  
 		        try {  
-		            appender.setSMTPUsername("cheny201");  
-		            appender.setSMTPPassword("chenying201.");  
-		            appender.setTo("404369230@qq.com");  
-		            appender.setFrom("cheny201@163.com");  
-		            // SMTP服务器 smtp.163.com  
-		            appender.setSMTPHost("smtp.163.com");  
-		            appender.setLocationInfo(true);  
-		            appender.setSubject("Test Mail From Log4J");  
-		            appender.setLayout(new PatternLayout()); 
-		            appender.setThreshold(Level.DEBUG);
-		            appender.setBufferSize(1);
-		            appender.setEvaluator(new CYFTriggeringEventEvaluator());
-//		            appender.setSendOnClose(true);
-		            appender.activateOptions(); 
+		        	appender.setName("SMTPAppender");
+		        	
+		            appender.setSMTPUsername(CYFLogConfig.getUserName());  
+		            appender.setSMTPPassword(CYFLogConfig.getPassword());  
+		            appender.setTo(CYFLogConfig.getToAddress());  
+		            appender.setFrom(CYFLogConfig.getFromAddress());  
+		            appender.setSMTPHost(CYFLogConfig.getHost());  
+		            appender.setSubject(CYFLogConfig.getSubject());
+		            appender.setBcc(CYFLogConfig.getBccAddress());
+		            appender.setCc(CYFLogConfig.getCcAddress());
+		            appender.setSMTPPort(CYFLogConfig.getPort());
+		            appender.setSMTPProtocol(CYFLogConfig.getProtocol());
+		            appender.setThreshold(CYFLogConfig.getLevel());//指定日志消息的输出最低级别
+		            
+		            //设置日志格式
+		            PatternLayout patternLayout = new PatternLayout();
+		            patternLayout.setConversionPattern("[%d{HH:mm:ss}] [%p] (%F:%L) %m%n");
+		            appender.setLayout(patternLayout);
+		            
+		            //设置日至级别过滤
+		            LevelRangeFilter filter = new LevelRangeFilter();
+		            filter.setLevelMax(CYFLogConfig.getLevel());
+		            filter.setLevelMin(CYFLogConfig.getLevel());
+		            appender.addFilter(filter);
+		            
+		            appender.setBufferSize(CYFLogConfig.getBufferSize());
+		            appender.setSendOnClose(true);
+		            appender.activateOptions();
 		            log.addAppender(appender);  
 		        } catch (Exception e) {  
 		            log.error("Printing ERROR Statements", e);  
-		        }  
+		        } 
+		        log.debug("Log4j添加邮件功能--------------结束");
 		}
 	}
     

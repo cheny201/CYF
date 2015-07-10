@@ -40,8 +40,7 @@ public class MainTest extends TestCase{
 		m3.setContent("<html><head></head><body><h2>222222222222</h2></body></html>");
 		m3.setSubject("测试3-html");
 		m3.setHTML(true);
-		MailClient client = new MailClient("smtp.163.com", "cheny201@163.com","陈颖","cheny201", "chenying201.", false);
-//		MailClient client = new MailClient("mail.msthamc.com", "jiwo@msthamc.com","陈颖","jiwo", "thamco2012", true);
+		MailClient client = new MailClient("smtp.163.com", "","","", "", false);
 		client.send(new MailInfo[]{m2});
 	}
 	
