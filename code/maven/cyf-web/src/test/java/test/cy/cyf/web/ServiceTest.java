@@ -12,7 +12,7 @@ public class ServiceTest extends TestBase{
 
 	@Test
 	public void test1(){
-		weiXinService.doService();
+//		weiXinService.doService();
 	}
 	
 }

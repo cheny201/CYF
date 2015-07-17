@@ -9,6 +9,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 import com.cy.cyf.core.Constant;
+import com.cy.cyf.log.CYFLog;
 import com.swetake.util.Qrcode;
 
 /**
@@ -85,11 +86,11 @@ public class QRCodeEncoderHandler {
 				// 生成二维码QRCode图片
 				ImageIO.write(bufImg, "png", imgFile);
 			} else {
-				System.err.println("QRCode content bytes length < 0");
+				CYFLog.error("QRCode content bytes length < 0");
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			CYFLog.error("",e);
 		}
 
 	}

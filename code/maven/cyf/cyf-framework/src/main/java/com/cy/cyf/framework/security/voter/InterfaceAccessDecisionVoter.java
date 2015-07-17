@@ -6,10 +6,14 @@ import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.FilterInvocation;
 
-import com.cy.cyf.util.ValidateUtil;
-
+/**
+ * 接口验证器
+ * 
+ * @author ChenY201
+ * @date 2015年7月13日
+ */
 @SuppressWarnings("rawtypes")
-public class WebserviceAccessDecisionVoter implements AbstractAccessDecisionVoter {
+public abstract class InterfaceAccessDecisionVoter implements AbstractAccessDecisionVoter {
 
 	public boolean supports(Class clazz) {
 		return true;
@@ -27,9 +31,11 @@ public class WebserviceAccessDecisionVoter implements AbstractAccessDecisionVote
 			invocation = (FilterInvocation)object;
 			requestUrl = invocation.getRequestUrl();
 		}
-		if(!ValidateUtil.isEmpty(requestUrl) && requestUrl.length()>10 && "webservice".equals(requestUrl.substring(1, 11))){
+		if(check(requestUrl)){
 			return 1;
 		}
 		return -1;
 	}
+	
+	public abstract boolean check(String requestUrl);
 }

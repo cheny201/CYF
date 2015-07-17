@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.cy.cyf.core.Constant;
+import com.cy.cyf.log.CYFLog;
 import com.cy.cyf.util.ValidateUtil;
 
 import jp.sourceforge.qrcode.QRCodeDecoder;
@@ -43,18 +44,10 @@ public class QRCodeDecoderHandler {
 
 			QRCodeDecoder decoder = new QRCodeDecoder();
 			decodedData = new String(decoder.decode(new J2SEImage(bufImg)),encode);
-			// try {
-			// System.out.println(new String(decodedData.getBytes(Constants),
-			// Constants));
-			// } catch (Exception e) {
-			//
-			// }
 		} catch (IOException e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
+			CYFLog.error("",e);
 		} catch (DecodingFailedException dfe) {
-			System.out.println("Error: " + dfe.getMessage());
-			dfe.printStackTrace();
+			CYFLog.error("",dfe);
 		}
 		return decodedData;
 	}
