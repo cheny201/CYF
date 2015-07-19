@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/resources/lib/layer/skin/layer.css=UTF-8
+encoding//src/main/webapp/resources/lib/layer/skin/layer.ext.css=UTF-8
+encoding//src/main/webapp/resources/lib/laypage/skin/laypage.css=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
