@@ -1,11 +1,11 @@
 package com.cy.cyf.framework.security.service;
 
-import com.cy.cyf.framework.security.pojo.User;
+import com.cy.cyf.framework.security.pojo.BaseUser;
 
 public interface SecurityService {
 	
-	public User queryByUserName(String userName);
+	public BaseUser queryByUserName(String userName);
 	
-	public boolean validatePassword(String password,User user);
+	public boolean validatePassword(String password,BaseUser user);
 
 }

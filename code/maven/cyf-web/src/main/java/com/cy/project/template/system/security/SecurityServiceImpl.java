@@ -2,8 +2,9 @@ package com.cy.project.template.system.security;
 
 import org.springframework.stereotype.Service;
 
-import com.cy.cyf.framework.security.pojo.User;
+import com.cy.cyf.framework.security.pojo.BaseUser;
 import com.cy.cyf.framework.security.service.SecurityService;
+import com.cy.project.template.user.pojo.User;
 
 @Service
 public class SecurityServiceImpl implements SecurityService{
@@ -15,7 +16,7 @@ public class SecurityServiceImpl implements SecurityService{
 	}
 
 	@Override
-	public boolean validatePassword(String password, User user) {
+	public boolean validatePassword(String password, BaseUser user) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.cy.cyf.core.exception.EncryptException;
 import com.cy.cyf.framework.controller.BaseController;
 import com.cy.cyf.log.CYFLog;
-import com.cy.cyf.util.EncryptDTO;
-import com.cy.cyf.util.EncryptUtil;
 import com.cy.cyf.util.XMLUtil;
+import com.cy.cyf.util.encrypt.EncryptDTO;
+import com.cy.cyf.util.encrypt.EncryptUtil;
 import com.cy.project.weixin.service.WeiXinService;
 
 @Controller
@@ -62,7 +62,7 @@ public class WXController extends BaseController {
 		} catch (Exception e) {
 			CYFLog.error("接收微信请求失败",e);
 		}
-		super.write(resp, returnMsg);
+		super.writeToPage(returnMsg, resp, null);
 	}
 
 	private boolean checkSign(String token, String signature, String timestamp,

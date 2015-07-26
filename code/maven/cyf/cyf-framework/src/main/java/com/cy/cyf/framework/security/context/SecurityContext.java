@@ -8,19 +8,19 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.cy.cyf.framework.security.pojo.User;
+import com.cy.cyf.framework.security.pojo.BaseUser;
 
 public class SecurityContext {
 	
-	public static User getUser() {
+	public static BaseUser getUser() {
 		Authentication authentication = SecurityContextHolder.getContext()
 				.getAuthentication();
 		Object principal = authentication == null ? null : authentication
 				.getPrincipal();
-		if ((principal == null) || (!(principal instanceof User))) {
+		if ((principal == null) || (!(principal instanceof BaseUser))) {
 			return null;
 		}
-		return (User) principal;
+		return (BaseUser) principal;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -41,7 +41,7 @@ public class SecurityContext {
 				.getAuthentication();
 		Object principal = authentication == null ? null : authentication
 				.getPrincipal();
-		return (principal == null) || (!(principal instanceof User));
+		return (principal == null) || (!(principal instanceof BaseUser));
 	}
 
 //	public static Object getUserSessionProperty(String key) {

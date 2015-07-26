@@ -17,7 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @since 2014-4-30
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath*:com/cy/config/spring/spring.xml"})
+@ContextConfiguration({"classpath*:com/cy/config/spring/spring.xml",
+	"classpath*:com/cy/config/spring/spring-hibernate.xml"})
 public class TestBase {
 
 	@Autowired

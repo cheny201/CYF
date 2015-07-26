@@ -5,7 +5,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
-import com.cy.cyf.framework.security.pojo.User;
+import com.cy.cyf.framework.security.pojo.BaseUser;
 import com.cy.cyf.framework.security.service.SecurityService;
 import com.cy.cyf.log.CYFLog;
 import com.cy.cyf.core.Constant;
@@ -24,7 +24,7 @@ public class CYFAuthenticationProvider implements AuthenticationProvider {
 		}
 		UsernamePasswordAuthenticationToken token = null;
 		
-		User user = null;
+		BaseUser user = null;
 		user = securityService.queryByUserName(userName);
 		if(user == null){
 			CYFLog.debug(Constant.ERROR_CODE.NO_USER.getLabel()+"["+userName+"]");

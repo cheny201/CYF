@@ -9,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.FilterInvocation;
 
 import com.cy.cyf.core.Constant;
-import com.cy.cyf.framework.security.pojo.User;
+import com.cy.cyf.framework.security.pojo.BaseUser;
 import com.cy.cyf.log.CYFLog;
 
 @SuppressWarnings("rawtypes")
@@ -58,7 +58,7 @@ public abstract class URLAccessDecisionVoter implements AbstractAccessDecisionVo
 		}
 
 		Object principal = authentication.getPrincipal();
-		if (!(principal instanceof User)) {
+		if (!(principal instanceof BaseUser)) {
 			CYFLog.debug("IP[" + request.getRemoteAddr() + "]未登陆，访问URL["
 					+ requestUrl + "]");
 			return -1;
@@ -76,7 +76,7 @@ public abstract class URLAccessDecisionVoter implements AbstractAccessDecisionVo
 		}
 		
 		// 判断用户是否有此URL访问权限
-		User user = (User) principal;
+		BaseUser user = (BaseUser) principal;
 		if(hasResource(requestUrl,user)){
 			return 1;
 		}
@@ -85,5 +85,5 @@ public abstract class URLAccessDecisionVoter implements AbstractAccessDecisionVo
 		return -1;
 	}
 	
-	public abstract boolean hasResource(String requestUrl,User user);
+	public abstract boolean hasResource(String requestUrl,BaseUser user);
 }

@@ -3,19 +3,14 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	<display-name>CYF</display-name>
 
-	<context-param>
-		<description>rootPath</description>
-		<param-name>rootPath</param-name>
-		<param-value>/cyf-web</param-value>
-	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			classpath*:com/cy/config/spring/spring.xml,
 			classpath*:com/cy/config/spring/spring-security.xml,
-			classpath*:com/cy/config/cxf/cxf-servlet.xml
+			classpath*:com/cy/config/cxf/cxf-servlet.xml,
+			classpath*:com/cy/config/spring/spring-hibernate.xml
 		</param-value>
 	</context-param>
 
@@ -52,8 +47,13 @@
 	<!-- springMVC END -->
 
 	<listener>
-		<display-name>rootPath</display-name>
+		<display-name>SystemListener</display-name>
 		<listener-class>com.cy.project.template.system.listener.SystemListener</listener-class>
+	</listener>
+	
+	<listener>
+		<display-name>CacheListener</display-name>
+		<listener-class>com.cy.cyf.framework.listener.CacheListener</listener-class>
 	</listener>
 
 	<!-- CXF Start -->

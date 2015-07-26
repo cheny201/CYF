@@ -1,4 +1,4 @@
-package com.cy.cyf.util;
+package com.cy.cyf.util.encrypt;
 
 import com.cy.cyf.core.Constant;
 

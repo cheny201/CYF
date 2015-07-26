@@ -68,6 +68,8 @@
 		<property name="packagesToScan">
 			<list>
 				<value>com.cy.project.*.*.model</value>
+				<value>com.cy.project.*.*.pojo</value>
+				<value>com.cy.project.template.user.pojo</value>
 			</list>
 		</property>
 	</bean>
@@ -78,6 +80,10 @@
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
+<!-- 	<bean id="baseDao4Hibernate" class="com.cy.cyf.framework.dao.BaseDao4Hibernate"> -->
+<!-- 		<property name="hibernateTemplate" ref="hibernateTemplate"></property> -->
+<!-- 		<property name="jdbcTemplate" ref="jdbcTemplate"></property> -->
+<!-- 	</bean> -->
 	
 	<!-- 定义事务管理器（声明式的事务） -->  
     <bean id="transactionManager"

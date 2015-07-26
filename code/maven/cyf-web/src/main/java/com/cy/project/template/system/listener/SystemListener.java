@@ -12,7 +12,7 @@ public class SystemListener implements ServletContextListener,HttpSessionListene
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		CYFLog.debug("程序运行目录["+event.getServletContext().getRealPath("/")+"]");
-		String rootPath = event.getServletContext().getInitParameter("rootPath");
+		String rootPath = event.getServletContext().getContextPath();
 		event.getServletContext().setAttribute("rootPath", rootPath);
 		CYFLog.debug("设置RootPath["+rootPath+"]");
 	}
